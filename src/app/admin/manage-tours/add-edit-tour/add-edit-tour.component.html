@@ -7,7 +7,7 @@
       <div class="col-md-4 col-12 d-flex flex-column align-items-start">
         <mat-label>Main Image</mat-label>
         <img [src]="tour.main_media_path" class="img-fluid mt-2 max-height-12">
-        <button mat-raised-button type="button" [disabled]="uploadIsLoading" class="my-3 float-right"
+        <button mat-raised-button type="button" [disabled]="uploadIsLoading" class="my-3 float-end"
           (click)="uploadMainImage.click()" color="primary">
           <app-spinner *ngIf="uploadIsLoading"></app-spinner> Upload
         </button>
@@ -36,7 +36,7 @@
       <div class="col-md-4 col-12 d-flex flex-column align-items-start">
         <mat-label>Program image</mat-label>
         <img [src]="tour.trip_program_media_path" class="img-fluid mt-2 max-height-12">
-        <button mat-raised-button type="button" [disabled]="uploadIsLoading" class="my-3 float-right"
+        <button mat-raised-button type="button" [disabled]="uploadIsLoading" class="my-3 float-end"
           (click)="uploadTripProgramImg.click()" color="primary">
           <app-spinner *ngIf="uploadIsLoading"></app-spinner> Upload
         </button>
@@ -106,7 +106,7 @@
       <div class="col-md-4 col-12 d-flex flex-column align-items-start">
         <mat-label>Expectations Image</mat-label>
         <img [src]="tour.expectation_media_path" class="img-fluid mt-2 max-height-12">
-        <button mat-raised-button type="button" [disabled]="uploadIsLoading" class="my-3 float-right"
+        <button mat-raised-button type="button" [disabled]="uploadIsLoading" class="my-3 float-end"
           (click)="uploadExpcImg.click()" color="primary">
           <app-spinner *ngIf="uploadIsLoading"></app-spinner> Upload
         </button>

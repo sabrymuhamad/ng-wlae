@@ -14362,10 +14362,6 @@ html {
       text-decoration: underline;
     }
 
-    abbr[title]::after {
-      content: " ("attr(title) ")";
-    }
-
     pre {
       white-space: pre-wrap !important;
     }
@@ -14584,6 +14580,7 @@ html {
   .typeahead:focus,
   .tt-query:focus,
   .tt-hint:focus {
+    box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
   }
@@ -14731,7 +14728,7 @@ html {
   /* Typography */
   body {
     font-size: 1rem;
-    
+
     font-weight: initial;
     line-height: normal;
     -webkit-font-smoothing: antialiased;
@@ -14749,7 +14746,7 @@ html {
   .h4,
   .h5,
   .h6 {
-    
+
     font-weight: 600;
   }
 
@@ -14963,7 +14960,7 @@ html {
   code {
     padding: 5px;
     color: #ff4d6b;
-    
+
     font-weight: 300;
     font-size: 0.875rem;
     border-radius: 4px;
@@ -15008,7 +15005,7 @@ html {
     -webkit-transition: all 0.25s ease;
     -ms-transition: all 0.25s ease;
     font-size: calc(0.875rem - 0.05rem);
-    
+
   }
 
   .footer a {
@@ -15145,27 +15142,27 @@ html {
   }
 
   .font-weight-light {
-    
+
     font-weight: 300;
   }
 
   .font-weight-medium {
-    
+
     font-weight: 600;
   }
 
   .font-weight-semibold {
-    
+
     font-weight: 700;
   }
 
   .font-weight-bold {
-    
+
     font-weight: bold;
   }
 
   .font-weight-normal {
-    
+
     font-weight: 400;
   }
 
@@ -15291,7 +15288,7 @@ html {
   .btn {
     font-size: 0.875rem;
     line-height: 1;
-    
+
     font-weight: 600;
     /* Buttons with only icons */
     /* Buttons with icon and text */
@@ -16176,13 +16173,13 @@ html {
     color: #343a40;
     margin-bottom: .75rem;
     text-transform: capitalize;
-    
+
     font-weight: 600;
     font-size: 1.125rem;
   }
 
   .card .card-subtitle {
-    
+
     margin-top: 0.625rem;
     margin-bottom: 0.625rem;
   }
@@ -16190,7 +16187,7 @@ html {
   .card .card-description {
     color: #76838f;
     margin-bottom: 1.5rem;
-    
+
   }
 
   .card.card-outline-success {
@@ -16596,7 +16593,7 @@ html {
   .tt-query,
   .tt-hint {
     border: 1px solid #e8ecf1;
-    
+
     font-size: 0.8125rem;
   }
 
@@ -16821,7 +16818,7 @@ html {
     -ms-flex-align: center;
     align-items: center;
     padding: 15px 15px;
-    
+
     font-size: 0.875rem;
   }
 
@@ -17158,7 +17155,7 @@ html {
   .table thead th {
     border-top: 0;
     border-bottom-width: 1px;
-    
+
     font-weight: 600;
     font-weight: initial;
   }
@@ -17790,7 +17787,7 @@ html {
 
   /* Navbar */
   .navbar {
-    
+
     font-weight: 300;
     background: #fff;
     transition: background 0.25s ease;
@@ -18316,7 +18313,7 @@ html {
 
   .sidebar .nav .nav-item.active:not(.navbar-brand-mini-wrapper)>.nav-link .menu-title {
     color: #b3b3b3;
-    
+
     font-weight: 600;
   }
 

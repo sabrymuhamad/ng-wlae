@@ -19,7 +19,7 @@
 
   <div class="w-100">
     <mat-label>Customer Image</mat-label>
-    <button [disabled]="uploadIsLoading" mat-raised-button type="button" class="mx-3 float-right"
+    <button [disabled]="uploadIsLoading" mat-raised-button type="button" class="mx-3 float-end"
       (click)="uploadMainImage.click()">
       <app-spinner [theme]="'text-warning'" *ngIf="uploadIsLoading"></app-spinner> Upload
     </button>
