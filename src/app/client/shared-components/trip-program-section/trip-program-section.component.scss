@@ -1,0 +1,34 @@
+@import '../../../../assets/scss/variables.scss';
+
+.wrapper {
+  background: #000;
+  width: 100%;
+}
+
+h1 {
+  color: #FFF;
+}
+
+h5 {
+  color: #FFF;
+}
+
+h4 {
+  color: #FFF;
+}
+
+p {
+  color: #FFF;
+}
+
+.preview {
+  img {
+    border-radius: 1.3rem !important;
+  }
+}
+
+.details-list {
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}

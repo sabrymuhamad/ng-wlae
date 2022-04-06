@@ -1,0 +1,66 @@
+<div class="contact-us pb-5">
+  <div class="page-bg"></div>
+  <app-client-spinner *ngIf="loading" [type]="'absolute'" [size]="'x2'"></app-client-spinner>
+  <div class="bg d-flex justify-content-center align-items-center">
+    <div class="text-center">
+      <h1 class="my-4 text-white">
+        {{contactUs.title}}
+      </h1>
+      <p class="w-50 m-auto text-white">
+        {{contactUs.description}}
+      </p>
+    </div>
+
+  </div>
+
+  <div class="mt-xl-minus">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 col-12">
+          <!-- <agm-map [disableDefaultUI]="false" [zoomControl]="false" [zoom]="16" [styles]="darkStyle" class="w-100"
+            [latitude]="lat" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map> -->
+          <h3 class="text-white mb-4">Contact info</h3>
+
+          <div class="contact-info p-5">
+            <ul>
+              <li><span class="icon"><img width="16" src="assets/images/clock-circle-o-anticon.svg"></span> 
+              {{contactUs.workingHours}}
+              </li>
+              <li><span class="icon"><img width="16" src="assets/images/mail-outline-material.svg"></span>
+                {{contactUs.email}}</li>
+              <li><span class="icon"><img width="16" src="assets/images/location-pin-simple-line-icons.svg"></span> {{contactUs.address}}</li>
+              <li><span class="icon"><img width="16" src="assets/images/mobile-font-awesome.svg"></span> {{contactUs.phone}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-7 col-12 px-5">
+          <h3 class="text-white mb-4">Get in touch</h3>
+
+          <form class="form-dark" (ngSubmit)="send()">
+            <div class="form-group">
+              <input type="text" placeholder="Full name" [(ngModel)]="fullName" name="fullName" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email address" [(ngModel)]="email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Subject" [(ngModel)]="subject" name="subject" class="form-control">
+            </div>
+            <div class="form-group">
+              <textarea rows="10"  placeholder="Message" [(ngModel)]="message" name="message"
+                class="form-control"></textarea>
+            </div>
+
+            <div class="form-group text-right">
+              <button class="btn btn-gold text-uppercase py-2">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

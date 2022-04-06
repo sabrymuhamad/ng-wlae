@@ -1,0 +1,50 @@
+.newsletter {
+    background-image: url('../../../../assets/images/newsletter-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 378px;
+  
+    .inner {
+      width: 45%;
+      float: right;
+  
+      h2 {
+        color: #FFF;
+        font-weight: 300;
+      }
+  
+      p {
+        color: #FFF;
+      }
+  
+      .form-group {
+        background-color: #FFF;
+        border-radius: 35px;
+        display: flex;
+        height: 65px;
+        align-items: center;
+        padding:0 10px;
+  
+        input {
+          border: 0;
+          height: 53px;
+          &:focus {
+            outline: 0;
+            border: 0;
+            box-shadow: none;
+          }
+        }
+  
+        button {
+          border: 0;
+          background:none;
+          &:focus {
+              outline: 0;
+              border: 0;
+              box-shadow: none;
+            }
+        }
+      }
+    }
+  }
+  

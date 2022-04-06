@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-6 col-12">
+    <mat-calendar (selectedChange)="dateChanged($event)" [(selected)]="selectedDate">
+    </mat-calendar>
+  </div>
+  <div class="col-md-6 col-12 info p-4">
+    <h4>Tours List</h4>
+    <h6 class="mb-4">{{selectedDate | date}}</h6>
+    <ul class="tours-list">
+      <li class="price-a">
+        <div>
+          <h6>Traveling To Hurghada</h6>
+          <div class="rate"><img src="assets/images/star.png"> <span class="px-1">4.9</span></div>
+        </div>
+        <div class="price">
+          <span>Starting from</span>
+          <span class="price-num">350</span>
+          <span class="currency">Egp</span>
+        </div>
+      </li>
+      <li class="price-b">
+        <div>
+          <h6>Traveling To Hurghada</h6>
+          <div class="rate"><img src="assets/images/star.png"> <span class="px-1">4.9</span></div>
+        </div>
+        <div class="price">
+          <span>Starting from</span>
+          <span class="price-num">350</span>
+          <span class="currency">Egp</span>
+        </div>
+      </li>
+      <li class="price-c">
+        <div>
+          <h6>Traveling To Hurghada</h6>
+          <div class="rate"><img src="assets/images/star.png"> <span class="px-1">4.9</span></div>
+        </div>
+        <div class="price">
+          <span>Starting from</span>
+          <span class="price-num">350</span>
+          <span class="currency">Egp</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

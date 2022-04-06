@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1441" height="774" viewBox="0 0 1441 774">
+    <defs>
+        <linearGradient id="prefix__b" x1="50%" x2="50%" y1="79.857%" y2="139.721%">
+            <stop offset="0%" stop-opacity="0"/>
+            <stop offset="100%"/>
+        </linearGradient>
+        <linearGradient id="prefix__d" x1="46.06%" x2="-20.882%" y1="46.488%" y2="46.488%">
+            <stop offset="0%" stop-color="#552400" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#200D00"/>
+            <stop offset="100%" stop-color="#301501"/>
+        </linearGradient>
+        <linearGradient id="prefix__f" x1="50%" x2="50%" y1="56.036%" y2="139.721%">
+            <stop offset="0%" stop-opacity="0"/>
+            <stop offset="100%"/>
+        </linearGradient>
+        <path id="prefix__a" d="M0 0H1441V774H0z"/>
+        <path id="prefix__c" d="M0 0H1441V774H0z"/>
+        <path id="prefix__e" d="M0 0H1441V774H0z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <use fill="url(#prefix__b)" style="mix-blend-mode:multiply" xlink:href="#prefix__a"/>
+        <use fill="url(#prefix__d)" opacity=".899" style="mix-blend-mode:normal" xlink:href="#prefix__c"/>
+        <use fill="url(#prefix__f)" style="mix-blend-mode:multiply" xlink:href="#prefix__e"/>
+    </g>
+</svg>

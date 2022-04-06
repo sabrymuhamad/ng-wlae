@@ -1,0 +1,98 @@
+div.slide {
+  width: 177px;
+  height: 177px;
+  border-radius: 5px;
+  margin: 0 10px;
+  overflow: hidden;
+
+  a {
+    display: block;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      background-color: rgba(0, 0, 0, .4);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      z-index: 9;
+      left: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      top: 0;
+      transition: all .1s ease 0s;
+    }
+
+    span {
+      font-size: 15px;
+      font-weight: 500;
+      color: #ffffff;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 99;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 34px;
+      text-shadow: 0 0 7px #444;
+    }
+
+    &:hover,
+    &.active {
+      opacity: 1;
+
+      img {
+        border: 4px solid red;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.carousel-wrapper {
+  position: relative;
+
+  .prev-btn,
+  .next-btn {
+    position: absolute;
+    top: 66px;
+    border: 0;
+    z-index: 999;
+    width: 54px;
+    height: 54px;
+    border-radius: 100%;
+    text-align: center;
+  }
+
+  .next-btn {
+    left: -60px;
+  }
+
+  .prev-btn {
+    right: -60px;
+  }
+}
+
+@media(max-width:1024px) {
+
+  .prev-btn,
+  .next-btn {
+    position: static !important;
+    margin: 5px;
+  }
+}

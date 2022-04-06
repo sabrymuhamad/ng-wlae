@@ -1,0 +1,37 @@
+<div class="carousel-wrapper">
+
+
+  <ngx-slick-carousel class="main carousel" #slickModal (afterChange)="afterChange($event)"
+    [config]="carouselSlideConfig">
+    <div *ngFor="let slide of slides; let i = index" ngxSlickItem class="slide">
+      <div class="carousel-slides" [ngStyle]="{'background-image':'url(' + slide.main_media_path + ')'}">
+        <div class="inner">
+          <div class="featured-badge">{{slide.destination_name}}</div>
+          <h2>{{slide.title}}</h2>
+          <p>{{slide.trip_program}}</p>
+          <div class="slide-footer">
+            <div class="border-left"></div>
+            <button [routerLink]="['/client/tours/tour-details/' + slide.id]" [queryParams]="{type:slide.tour_type}"
+              class="btn btn-transparent">Read The Article</button>
+            <div class="border-right"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+
+  <div class="carousel-thumbs">
+    <h1>Hidden Gems</h1>
+
+    <ul class="thumbs">
+      <li (click)="slickModal.slickGoTo(i);getView()" *ngFor="let slide of slides; let i = index" class="item"
+        [ngClass]="{'current-thumb': currentSlide === i}">
+        <img [src]="slide.main_media_path">
+        <div class="title">
+          <h5>{{slide.title}}</h5>
+          <small>{{slide.tour_dates[0]?.tour_date}}</small>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

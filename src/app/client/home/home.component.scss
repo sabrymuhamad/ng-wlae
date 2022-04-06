@@ -1,0 +1,33 @@
+section {
+  margin: 100px 0 0 0;
+
+  &.private-tours {
+    background-image: url('../../../assets/images/section-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 900px;
+
+    .container {
+      height: 100%;
+
+      .row {
+        height: 100%;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        margin: 10px;
+      }
+    }
+  }
+}
+
+h5 {
+  font-weight: 300;
+  line-height: 1.9;
+
+}

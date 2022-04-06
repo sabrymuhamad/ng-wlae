@@ -1,0 +1,108 @@
+<header>
+  <div class="container">
+    <button class="btn btn-link" routerLink="/client/home"><img src="assets/images/close-icon.svg" width="60"></button>
+    <button routerLink="/client/tours/tour-details/{{tripId}}" [queryParams]="{type: tripType}"
+      class="book-now-btn my-4">
+      <i class="fas fa-location-arrow"></i>
+      <span>Book Now</span>
+    </button>
+  </div>
+</header>
+<div class="wrapper">
+  <div class="container" id="slider">
+    <!-- slide 1 -->
+    <div class="slide slide-1">
+      <div class="inner">
+        <div class="featured-badge mb-4 p-0">
+          Featured Tour
+        </div>
+        <h1>{{tour.title}}</h1>
+        <h5>{{tour.trip_program}}</h5>
+        <div class="rate"><img src="assets/images/star.png"> <span class="px-1">4.9</span></div>
+        <div class="price">
+          <span>from</span>
+          <span class="price-num">{{tour.tour_price[0]?.price}}</span>
+          <span class="currency">Egp</span>
+        </div>
+      </div>
+
+      <div class="preview mt-5">
+        <img [src]="tour.main_media_path" class="img-fluid">
+      </div>
+    </div>
+
+    <!-- slide 2 -->
+    <!-- <div class="slide slide-2">
+
+      <div class="preview video mt-5" [ngStyle]="{'background-image': 'url(assets/images/video-image.jpg)'}">
+        <div class="inner">
+          <h5>Giza Pyramids and Sphinx</h5>
+          <h3>Half-Day Private Tour</h3>
+          <small>19 DEC 2019</small>
+        </div>
+        <button class="btn btn-link"><img src="assets/images/play-icon.svg" width="50"></button>
+      </div>
+
+      <div class="details mt-5">
+        <small>day 1</small>
+        <h4 class="my-3">Giza Pyramids and Sphinx: Half-Day Private Tour</h4>
+        <p>Friday morning, we will go on a morning tour exploring the southern part of Rhoda/Manial Island where we will
+          visit:
+          Nilometer
+          Manesterly palace (small building)
+          Um Kalthumm Museum
+          Then walk around 1 KM to Mar Girgis station where we will take the Metro to Al Zahraa metro station to go to
+          "Dawar Kitchen” located in Ezbet Khairallah</p>
+      </div>
+    </div> -->
+
+    <!-- slide 3 -->
+    <div class="slide slide-{{i+2}}" *ngFor="let day of tour.tour_details;let i = index">
+
+      <div class="preview video mt-5" [ngStyle]="{'background-image': 'url('+day.media_path+')'}">
+      </div>
+
+      <div class="details mt-5">
+        <small>{{day.time_range}}</small>
+        <h4 class="my-3">{{day.title}}</h4>
+        <p>{{day.description}}</p>
+      </div>
+    </div>
+
+
+    <!-- slide 4 -->
+    <div class="slide slide-4">
+      <div class="inner mt-5">
+        <h4 class="text-center w-50">The right price for you, whoever you are</h4>
+
+        <ul class="pricing-list">
+          <li *ngFor="let price of tour.tour_price;let i =index">
+            <app-pricing [data]="price"
+              [premium]="i===0 && tripType === 'public' ? true : i===1 && tripType === 'private' ? true : false"
+              [theme]="i > 0 ? 'white' : ''"></app-pricing>
+          </li>
+        </ul>
+
+        <div class="text-center">
+          <button class="btn-gold">Continue</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="mx-auto">
+        <button [disabled]="scrollAmount <= 0" (click)="onSlide('left')" class="btn btn-link"><img
+            src="assets/images/trip-left-arrow.svg"></button>
+        <button [disabled]="scrollAmount >= 3000" (click)="onSlide('right')" class="btn btn-link"><img
+            src="assets/images/trip-right-arrow.svg"></button>
+      </div>
+
+      <button routerLink="/client/tours/tour-details/{{tripId}}" [queryParams]="{type: tripType}" *ngIf="scrollAmount >= 2650" class="trip-details-btn">Trip details <i
+          class="fas fa-chevron-right"></i></button>
+    </div>
+  </footer>
+
+</div>

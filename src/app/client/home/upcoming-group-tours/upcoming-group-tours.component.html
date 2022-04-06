@@ -1,0 +1,29 @@
+<section>
+
+  <div class="carousel-controls">
+    <h1>Upcoming group tours</h1>
+
+
+    <div class="navigation-btns">
+      <button (click)="slickModal.slickGoTo(currentSlide + 1)"><img src="assets/images/arrow-right.svg" alt=""></button>
+      <button (click)="slickModal.slickGoTo(currentSlide - 1)"><img src="assets/images/arrow-left.svg" alt=""></button>
+    </div>
+
+    <ul class="indicators">
+      <li *ngFor="let slide of slides; let i = index" [ngClass]="{'current': currentSlide === i, 'd-none': i > 3}">
+        <a (click)="slickModal.slickGoTo(i)">{{i+1}}</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="carousel-wrapper">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+      (afterChange)="afterChange($event)">
+      <div ngxSlickItem *ngFor="let slide of slides; let i = index" class="slide">
+        <app-tour-card [data]="slide" [height]="400"></app-tour-card>
+      </div>
+    </ngx-slick-carousel>
+
+  </div>
+</section>

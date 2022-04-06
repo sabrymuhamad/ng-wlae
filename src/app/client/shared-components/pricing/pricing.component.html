@@ -1,0 +1,11 @@
+<div class="price-block" [ngClass]="{'premium' : premium, 'white-bg': theme === 'white'}">
+  <h5 class="m-0">{{data?.title}}</h5>
+  <span class="py-2">{{data?.sub_title}}</span>
+  <div class="price">
+    <label>${{data?.price}}</label>
+    <span>/{{data?.persons_number}}</span>
+  </div>
+  <small class="text-danger pt-1">
+    {{data?.additional_notes}}
+  </small>
+</div>

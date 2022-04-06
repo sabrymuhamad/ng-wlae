@@ -1,0 +1,68 @@
+@import '../../../../assets/scss/variables.scss';
+
+.rate {
+  display: flex;
+
+  img {
+    width: 15px;
+    height: 14px;
+  }
+
+  span {
+    font-size: 12px;
+    font-weight: 300;
+  }
+}
+
+.price {
+  display: flex;
+
+  span {
+    font-size: 12px;
+    font-weight: 300;
+    align-self: baseline;
+
+    &.price-num {
+      font-size: 20px;
+      font-weight: 500;
+      padding: 0 3px;
+    }
+
+    &.currency {
+      font-size: 10px;
+      align-self: auto;
+    }
+  }
+
+}
+
+.info {
+  background-color: #fafafa;
+
+  .tours-list {
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-left: 4px solid;
+      margin-bottom: 20px;
+      padding: 10px;
+
+      &.price-a {
+        border-color: $successColor;
+        background-color: rgba($successColor, .2);
+      }
+
+      &.price-b {
+        border-color: $infoColor;
+        background-color: rgba($infoColor, .2);
+      }
+
+      &.price-c {
+        border-color: $warningColor;
+        background-color: rgba($warningColor, .2);
+      }
+    }
+  }
+}
+

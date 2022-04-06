@@ -1,0 +1,349 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import 'assets/scss/admin-style.scss';
+@import 'assets/scss/variables.scss';
+@import '~ngx-toastr/toastr';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html,
+body {
+  height: 100%;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  transition: all .3s ease 0s;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.text-muted {
+  color: #959ea6;
+}
+
+h1 {
+  font-size: 4vh;
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 38px;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 29px;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 24px;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 35px;
+}
+
+.mt-minus {
+  margin-top: -40px;
+}
+
+.text-primary {
+  color: $primaryColor !important;
+}
+
+
+.featured-badge {
+  background-color: $transparentBlack;
+  height: 32px;
+  border-radius: 24px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #FFF;
+  display: inline-block;
+  line-height: 32px;
+  padding: 0 21px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.book-now-btn {
+  border: 1px solid rgba(255, 255, 255, .5) !important;
+  background: none;
+  min-width: 180px;
+  padding: 0 20px;
+  height: 58px;
+  border-radius: 30px;
+  transition: all .3s ease 0s;
+
+  i {
+    border: 2px solid $primaryColor;
+    width: 30px;
+    transition: all .3s ease 0s;
+    height: 30px;
+    border-radius: 100%;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    color: #FFF;
+    float: left;
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFF;
+    display: block;
+    line-height: 30px;
+  }
+
+  &:hover {
+    i {
+      transform: rotate(40deg);
+    }
+  }
+}
+
+.carousel-item {
+  margin-right: auto;
+}
+
+button {
+  &:focus {
+    outline: 0;
+    border: 0;
+    box-shadow: 0;
+  }
+}
+
+.btn-black {
+  min-width: 232px;
+  height: 58px;
+  border-radius: 29px;
+  border: solid 1px #000000;
+  background-color: #000000;
+  text-transform: uppercase;
+  color: #FFF;
+
+  &:hover {
+    background: #FFF;
+    border: 0;
+    box-shadow: 0 0 6px #ccc;
+  }
+}
+
+.btn-white {
+  min-width: 232px;
+  height: 58px;
+  border-radius: 29px;
+  border: solid 1px #FFF;
+  background-color: #FFF;
+  text-transform: uppercase;
+  color: #000;
+
+  &:hover {
+    background: #000;
+    border: 0;
+    color: #FFF;
+    box-shadow: 0 0 6px #ccc;
+  }
+}
+
+.btn-transparent {
+  min-width: 196px;
+  height: 58px;
+  border-radius: 29px;
+  border: solid 1px #979797;
+  color: #FFF;
+  background: none;
+  text-transform: uppercase;
+
+  &:hover {
+    background: #FFF;
+  }
+}
+
+.btn-gold {
+
+  border: solid 1px $primaryColor;
+  background-color: $primaryColor;
+  min-width: 165px;
+  min-height: 36px;
+  border-radius: 29px;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &:hover {
+    background: #FFF;
+  }
+}
+
+.bg-dark {
+  background: #000 !important;
+}
+
+.bg-cafe {
+  background-color: #fff8ed;
+}
+
+.lh-2 {
+  line-height: 2;
+}
+
+.block-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.tags-list {
+  li {
+    margin-bottom: 20px;
+
+    a {
+      padding: 0 40px;
+      height: 44px;
+      border-radius: 22px;
+      background-color: #929dad;
+      line-height: 44px;
+      color: #FFF;
+      display: block;
+
+      &:hover {
+        text-decoration: none;
+        background-color: #000;
+      }
+    }
+  }
+}
+
+.ls-1 {
+  letter-spacing: 1px;
+}
+
+.ls-2 {
+  letter-spacing: 2px;
+}
+
+.form-dark {
+  .form-group {
+    .form-control {
+      min-height: 55px;
+      opacity: 0.7;
+      border: solid 1px #979797;
+      background-color: #121212;
+      margin-bottom: 25px;
+
+      &:focus {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.currency {
+  text-transform: uppercase;
+}
+
+.mat-calendar-controls {
+  margin-top: 10px !important;
+}
+
+.max-height-12 {
+  max-height: 120px;
+}
+
+.plain-btn {
+  background: none;
+  border: 0;
+  font-size: 12px;
+}
+
+.black-bg {
+  background: #121212;
+}
+
+.html-format {
+  p {
+    margin: 0;
+  }
+}
+
+.angular-editor-wrapper img {
+  max-width: 100%;
+}
+
+/// dark theme
+.mat-dark-theme {
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #9a9898;
+  }
+
+  .mat-form-field-label {
+    color: #9a9898;
+  }
+
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+  .mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+    color: #9a9898;
+  }
+
+  .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button,
+  .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+    color: #9a9898;
+  }
+
+  input.mat-input-element,
+  textarea.mat-input-element,
+  .mat-select-arrow {
+    color: #9a9898;
+    caret-color: #9a9898;
+
+    &::placeholder {
+      color: #9a9898;
+    }
+  }
+
+  .mat-radio-outer-circle,
+  .mat-checkbox-frame {
+    border-color: #9a9898;
+  }
+
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #c29b00;
+  }
+
+}

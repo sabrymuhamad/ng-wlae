@@ -1,0 +1,74 @@
+.form-wrapper {
+  color: #FFF;
+  background-color: #000;
+}
+
+h1,
+h2,
+h3 {
+  color: #FFF;
+}
+
+h4 {
+  padding: 15px 0;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.custom-chkbx {
+  display: flex;
+
+  li {
+    min-width: 180px;
+    border: 2px solid #FFF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50px;
+    margin: 0 30px 0 0;
+    cursor: pointer;
+
+    &.selected {
+      background-color: #FFF;
+      color: #000;
+    }
+
+    &:hover {
+      border-color: #ffc973;
+    }
+  }
+}
+
+.price-block {
+  text-align: center;
+  background-color: #202020;
+  border-radius: 5px;
+  padding: 20px;
+  margin-right: 30px;
+
+  .person-counter {
+    margin: auto;
+    background: #FFF;
+    width: 150px;
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-around;
+
+    button {
+      width: 30px;
+      height: 30px;
+      border: 0;
+      border-radius: 100%;
+      background-color: #dfdfdf;
+    }
+
+    input {
+      border: 0;
+      text-align: center;
+      width: 75px;
+      height: 35px;
+    }
+  }
+}

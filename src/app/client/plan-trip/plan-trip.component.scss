@@ -1,0 +1,18 @@
+.bg {
+  background-image: url('../../../assets/images/plan-your-trip-main-image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  height: 70vh;
+  top: -105px;
+  z-index: 0;
+
+  @media(max-width:768px) {
+    top: -4px;
+  }
+}
+
+h5{
+  font-size: 18px;
+}

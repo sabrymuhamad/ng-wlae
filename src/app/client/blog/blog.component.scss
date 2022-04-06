@@ -1,0 +1,39 @@
+.blog-wrapper{
+  min-height: 400px;
+}
+.blog-tabs {
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    button {
+      padding: 0 20px;
+      min-height: 40px;
+      border-radius: 3px;
+      border: solid 1px #8d9db1;
+      background-color: #ffffff;
+      color: #8d9db1;
+      margin-bottom: 20px;
+    }
+
+    &.active,
+    &:hover {
+      button {
+        color: #FFF;
+        background-color: #8d9db1;
+      }
+    }
+  }
+}
+
+.loading {
+  opacity: 0.5;
+  margin: auto;
+  text-align: center;
+
+  p {
+    font-size: 10px;
+    text-align: center;
+    color: #000000;
+  }
+}

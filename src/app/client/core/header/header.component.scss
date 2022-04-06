@@ -1,0 +1,27 @@
+@import '../../../../assets/scss/variables.scss';
+header {
+  width: 100%;
+  min-height: 34px;
+  line-height: 34px;
+  background-color: $transparentBlack;
+  position: relative;
+  z-index: 9;
+}
+
+.currency {
+  color: #FFF;
+  font-size: 12px;
+  border-right: 1px solid $transparentBlack;
+}
+
+ul {
+  li {
+    float: left;
+    margin: 0 10px;
+    
+    a {
+      color: #FFF;
+      font-size: 12px;
+    }
+  }
+}

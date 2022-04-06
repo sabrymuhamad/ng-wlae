@@ -1,0 +1,46 @@
+<div class="block-spinner">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>
+  
+  <div class="container">
+    <div class="page-header">
+      <h3 class="page-title"> FAQs </h3>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/admin/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">FAQs</li>
+        </ol>
+      </nav>
+    </div>
+    <button mat-raised-button color="primary" (click)="FAQModal('add')">Add FAQ</button>
+  
+    <table mat-table [dataSource]="dataSource" class="mt-4 w-100">
+  
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Question </th>
+        <td class="w-25" mat-cell *matCellDef="let element"> <div class="max-height-100">{{element.question}}</div> </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="content">
+        <th mat-header-cell *matHeaderCellDef> Answer </th>
+        <td class="w-50" mat-cell *matCellDef="let element"> <div class="max-height-100">{{element.answer}}</div> </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> <i class="fas fa-cog"></i> </th>
+        <td mat-cell *matCellDef="let element;let i = index">
+          <button mat-icon-button type="button" (click)="FAQModal('edit', element)" color="accent"><i class="far fa-edit"></i></button>
+          <button mat-icon-button type="button" (click)="delete(i)" color="warn"><i
+              class="far fa-trash-alt"></i></button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    </table>
+    <mat-paginator [length]="totalElements" [pageSize]="perPage" (page)="onPaginationChange($event)"
+      [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+  </div>
+  

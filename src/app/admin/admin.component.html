@@ -1,0 +1,13 @@
+<div class="admin-panel">
+  <div class="container-scroller">
+    <app-header *ngIf="login"></app-header>
+    <div class="container-fluid page-body-wrapper" [ngClass]="{'full-page-wrapper' : !login}">
+      <app-side-nav *ngIf="login"></app-side-nav>
+      <div [ngClass]="{'row flex-grow' : !login, 'main-panel' : login}">
+        <div class="content-wrapper">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

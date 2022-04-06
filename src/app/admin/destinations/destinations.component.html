@@ -1,0 +1,51 @@
+<div class="block-spinner">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+</div>
+
+<div class="container">
+  <div class="page-header">
+    <h3 class="page-title"> Destinations </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/admin/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Destinations</li>
+      </ol>
+    </nav>
+  </div>
+  <button mat-raised-button color="primary" (click)="addDestinationModal()">Add Destinations</button>
+
+  <table mat-table [dataSource]="destinations" class="mt-4">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="media">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element"><img class="rounded my-2" height="50" [src]="element.media"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> <i class="fas fa-cog"></i> </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button type="button" (click)="updateDestinationModal(element)" color="accent"><i
+            class="far fa-edit"></i></button>
+        <button mat-icon-button type="button" (click)="delete(element.id)" color="warn"><i
+            class="far fa-trash-alt"></i></button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  <mat-paginator [length]="totalElements" [pageSize]="perPage" (page)="onPaginationChange($event)"
+    [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+</div>

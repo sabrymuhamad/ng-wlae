@@ -1,0 +1,73 @@
+@import '../../../../assets/scss/variables.scss';
+
+section {
+  position: relative;
+  padding: 82px 0;
+  margin-top: -40px;
+  display: flex;
+  overflow-x: hidden;
+
+  &:before {
+    content: "";
+    width: 580px;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+
+  .carousel-controls {
+    padding: 2rem 4rem 0 6rem;
+
+    h1 {
+      color: #FFF;
+      font-weight: 300;
+    }
+
+    .navigation-btns {
+      display: flex;
+      flex-direction: column;
+
+      button {
+        background: none;
+        border: 0;
+        width: 42px;
+        margin: 15px 0 0;
+      }
+    }
+
+    .indicators {
+      display: flex;
+      align-items: flex-end;
+
+      li {
+        color: #4d4d4d;
+        font-size: 29px;
+        padding: 0 10px;
+        border-bottom: 1px solid;
+
+        a {
+          cursor: pointer;
+        }
+
+        &.current {
+          color: #FFF;
+          font-size: 44px;
+          font-weight: 600;
+          border-color: $primaryColor;
+        }
+      }
+    }
+  }
+
+  .carousel-wrapper {
+    width: 75%;
+  }
+}
+
+.slide {
+  margin: 0 10px;
+}

@@ -1,0 +1,19 @@
+.bg {
+  // background-image: url('../../../assets/images/public-tours-hero-image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  height: 80vh;
+  top: -105px;
+  z-index: 0;
+
+  @media(max-width:768px) {
+    top: -4px;
+  }
+
+}
+
+.masonry-item {
+  margin-bottom: 20px;
+}

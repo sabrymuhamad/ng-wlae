@@ -1,0 +1,13 @@
+<h5>{{data.type === 'add' ? 'Create' : 'Update'}} Category</h5>
+
+<form>
+
+  <mat-form-field class="w-100">
+    <mat-label>Category Name</mat-label>
+    <input matInput type="text" [(ngModel)]="name" name="name" placeholder="Destination Name">
+  </mat-form-field>
+
+  <button (click)="submit()" mat-raised-button color="primary" class="btn-block mt-4" type="submit">
+    <app-spinner *ngIf="loading"></app-spinner> {{data.type === 'add' ? 'Create' : 'Update'}}
+  </button>
+</form>

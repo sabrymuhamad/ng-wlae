@@ -1,0 +1,26 @@
+  <h5>{{data.type === 'add' ? 'Create' : 'Update'}} Destination</h5>
+
+  <form>
+
+    <mat-form-field class="w-100">
+      <mat-label>Destination</mat-label>
+      <input matInput type="text" [(ngModel)]="name" name="name" placeholder="Destination Name">
+    </mat-form-field>
+
+    <div class="w-100">
+      <mat-label>Destination Image</mat-label>
+      <button [disabled]="uploadIsLoading" mat-raised-button type="button" class="mx-3 float-right"
+        (click)="uploadMainImage.click()">
+        <app-spinner [theme]="'text-warning'" *ngIf="uploadIsLoading"></app-spinner> Upload
+      </button>
+      <input hidden type="file" (change)="onUpload($event)" #uploadMainImage>
+      <div class="w-100">
+        <img [src]="imgUrl" class="img-fluid">
+      </div>
+    </div>
+
+
+    <button (click)="submit()" mat-raised-button color="primary" class="btn-block mt-4" type="submit">
+      <app-spinner *ngIf="loading"></app-spinner> {{data.type === 'add' ? 'Create' : 'Update'}}
+    </button>
+  </form>

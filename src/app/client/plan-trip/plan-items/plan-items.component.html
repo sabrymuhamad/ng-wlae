@@ -1,0 +1,249 @@
+<div [ngSwitch]="tabs">
+
+  <ul class="plan-items">
+    <li>
+      <a (click)="tabs = 'tab1'" [ngClass]="{'active': tabs === 'tab1'}">
+        <img src="assets/images/getting-started-unselected.jpg">
+        <span>Getting started</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="tabs = 'tab2'" [ngClass]="{'active': tabs === 'tab2'}">
+        <img src="assets/images/travel-tips-unselected.jpg">
+        <span>Accommodations we love</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="tabs = 'tab3'" [ngClass]="{'active': tabs === 'tab3'}">
+        <img src="assets/images/program-inspiration-unselected.jpg">
+        <span>program inspiration</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="tabs = 'tab4'" [ngClass]="{'active': tabs === 'tab4'}">
+        <img src="assets/images/customize-your-tour-unselected.jpg">
+        <span>Travel tips</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="tabs = 'tab5'" [ngClass]="{'active': tabs === 'tab5'}">
+        <img src="assets/images/accommodations-selected.jpg">
+        <span>Customize your tour</span>
+      </a>
+    </li>
+  </ul>
+
+  <div *ngSwitchCase="'tab1'">
+    <section class="mt-5">
+      <div class="row m-0">
+        <div class="col-md-6 col-12 p-0">
+          <img src="assets/images/image-1.jpg" class="w-100">
+        </div>
+        <div class="col-md-6 col-12 p-3 d-flex align-items-center">
+          <div class="px-4">
+            <h5>First things</h5>
+            <h2 class="mb-4 font-weight-bold">
+              Where to stay and how long in each city?
+            </h2>
+            <h6 class="lh-2">
+              Where you stay during your trip has a huge influence on the general output on your trip. You can stay far
+              and spend lots of time commuting or miss an opportunity of staying in a hidden gem hotel… Because we value
+              your trip, we want to give you our insider local tip on where you can stay and our favorite hotels. Check
+              our section <strong>“Accommodations we love”</strong> for more inspiration.
+            </h6>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-5">
+      <div class="row m-0">
+        <div class="col-md-6 col-12 p-0">
+          <h2 class="mb-4 font-weight-bold">Decide what you want to visit.</h2>
+          <h5 class="mb-4 text-muted">Choose a city from below for travel inspiration</h5>
+          <ul class="tags-list d-flex flex-wrap">
+            <li class="mx-2"><a href="#">Cairo</a></li>
+            <li class="mx-2"><a href="#">Luxor</a></li>
+            <li class="mx-2"><a href="#">Aswan</a></li>
+            <li class="mx-2"><a href="#">Alexandria</a></li>
+          </ul>
+
+        </div>
+        <div class="col-md-6 col-12 px-4">
+          <img src="assets/images/image-2.jpg" class="w-100">
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-5">
+      <div class="row m-0">
+        <div class="col-md-6 col-12 p-0">
+          <img src="assets/images/image-3.jpg" class="w-100">
+        </div>
+        <div class="col-md-6 col-12 p-3">
+          <div class="px-4">
+            <h2 class="mb-4 font-weight-bold">
+              Book your flights
+            </h2>
+            <h6 class="lh-2">
+              It’s advisable to book your international and local flights as early as possible to guarantee a good
+              price. Prices get higher when you get closer to the travel dates.
+            </h6>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-5">
+      <div class="row m-0">
+        <div class="col-md-6 col-12 p-0">
+          <h2 class="mb-4 font-weight-bold">Book your tours in advance</h2>
+          <h6 class="lh-2">
+            The sooner you decide on the tours and the dates, it’s advisable to book the tours right away so you can
+            guarantee that we have availability.
+          </h6>
+          <ul class="tags-list d-flex flex-wrap">
+            <li class="mx-2"><a href="#">Private tours</a></li>
+            <li class="mx-2"><a href="#">Group tours</a></li>
+          </ul>
+
+        </div>
+        <div class="col-md-6 col-12 px-4">
+          <img src="assets/images/image-4.jpg" class="w-100">
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-5">
+      <div class="row m-0">
+        <div class="col-md-6 col-12 p-0">
+          <img src="assets/images/image-5.jpg" class="w-100">
+        </div>
+        <div class="col-md-6 col-12 p-3">
+          <div class="px-4">
+            <h2 class="mb-4 font-weight-bold">
+              Book your Trip
+            </h2>
+            <h6 class="lh-2">
+              with Walk Like an Egyptian &amp; enjoy memorable trip and the peace of mind that you have the best guides
+              in Egypt with you during your trip to Egypt.
+            </h6>
+            <button class="btn-gold text-uppercase px-5 py-3 mt-4">Book Your Tour</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div *ngSwitchCase="'tab2'">
+    <section class="mt-5">
+      <div class="row m-0">
+        <div class="col-md-6 col-12 p-0">
+          <img src="assets/images/tab2-image-1.jpg" class="w-100">
+        </div>
+        <div class="col-md-6 col-12 p-3 d-flex align-items-center">
+          <div class="px-4">
+            <h5>Cairo</h5>
+            <h2 class="mb-4 font-weight-bold">
+              What’s Cairo for Egyptians?
+            </h2>
+            <h6 class="lh-2">
+              Common for Egyptians to say “Masr” (Egypt in Arabic) instead of saying “Al-Qahira” (Cairo). when talking
+              about the great city of Cairo.
+              Cairo is everything for Egyptians. Here you will find:
+              More entertainment، More sightseeing، More Food varieties، More nightlife … <a class="text-dark font-weight-bold px-2" routerLink="/client/blog">More</a>
+            </h6>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-5">
+      <div class="row m-0">
+        <div class="col-md-6 col-12 p-3 d-flex align-items-center">
+          <div class="px-4">
+            <h5>Luxor</h5>
+            <h2 class="mb-4 font-weight-bold">
+              About Luxor
+            </h2>
+            <h6 class="lh-2">
+              Luxor is located more than 600 KM south of Cairo. It’s one of the world’s biggest open air museum. Once
+              capital of Egypt’s golden era “The New Kingdom”, today it’s a charming place to visit mixing both history
+              and authentic life.<a class="text-dark font-weight-bold px-2" routerLink="/client/blog">More</a>
+            </h6>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 p-0">
+          <img src="assets/images/tab2-image-2.jpg" class="w-100">
+        </div>
+      </div>
+    </section>
+    <section class="mt-5">
+      <div class="row m-0">
+        <div class="col-md-6 col-12 p-0">
+          <img src="assets/images/tab2-image-3.jpg" class="w-100">
+        </div>
+        <div class="col-md-6 col-12 p-3 d-flex align-items-center">
+          <div class="px-4">
+            <h5>Aswan</h5>
+            <h2 class="mb-4 font-weight-bold">
+              About Aswan
+            </h2>
+            <h6 class="lh-2">
+              Aswan is located more than 600 KM south of Cairo. It’s one of the world’s biggest open air museum. Once
+              capital of Egypt’s golden era “The New Kingdom”, today it’s a charming place to visit mixing both history
+              and authentic life.<a class="text-dark font-weight-bold px-2" routerLink="/client/blog">More</a>
+            </h6>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-5">
+      <div class="row m-0">
+        <div class="col-md-6 col-12 p-3 d-flex align-items-center">
+          <div class="px-4">
+            <h5>Alexandria</h5>
+            <h2 class="mb-4 font-weight-bold">
+              About Alex
+            </h2>
+            <h6 class="lh-2">
+              Alexandria is located more than 600 KM south of Cairo. It’s one of the world’s biggest open air museum. Once
+              capital of Egypt’s golden era “The New Kingdom”, today it’s a charming place to visit mixing both history
+              and authentic life.<a class="text-dark font-weight-bold px-2" routerLink="/client/blog">More</a>
+            </h6>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 p-0">
+          <img src="assets/images/tab2-image-4.jpg" class="w-100">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div *ngSwitchCase="'tab3'">
+    <h2 class="mb-4 font-weight-bold mt-5">Cairo in 5 days</h2>
+    <p>It will be a great pleasure to assist you get the best out of your time in Egypt. Our travel experts are here to help you plan your dream trip with a premium quality.</p>
+
+    <div class="row">
+
+      <div *ngFor="let tour of publicTours;let i = index" [ngClass]="{'col-md-8' : i === 0, 'col-md-4' : i > 0 }"
+        class="col-12 mb-4">
+        <app-tour-card [data]="tour" [showCalendar]="false"></app-tour-card>
+      </div>
+
+    </div>
+
+    <h2 class="mb-4 font-weight-bold mt-5">Egypt in 8 days</h2>
+
+    <div class="row">
+      <div *ngFor="let tour of privateTours;let i = index" 
+        class="col-md-4 col-12 mb-4">
+        <app-tour-card [data]="tour" [showCalendar]="false"></app-tour-card>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

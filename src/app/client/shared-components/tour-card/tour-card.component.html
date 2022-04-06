@@ -1,0 +1,23 @@
+<div class="card"
+  [ngStyle]="{'background-image': 'url('+ data.main_media_path +')', 'height.px':height, 'width.px': width}">
+  <div class="featured-badge">{{data.destination_name}}</div>
+
+
+  <div class="inner px-4 pt-3">
+    <div *ngIf="showCalendar && type === 'public'" class="calendar">
+      <p>{{data?.tour_dates[0]?.tour_date | date:'MM'}}</p>
+      <p class="number">{{data?.tour_dates[0]?.tour_date | date:'dd'}}</p>
+      <p>{{data?.tour_dates[0]?.tour_date | date:'yyyy'}}</p>
+    </div>
+    <div class="details">
+      <h5 [routerLink]="['/client/tours/tour-details/' + data.id]" [queryParams]="{type:data.tour_type}">{{data.title}}</h5>
+      <div class="rate"><img src="assets/images/star.png"> <span class="px-1">4.9</span></div>
+
+      <div class="price">
+        <span>from</span>
+        <span class="price-num">{{data?.tour_price[0]?.price}}</span>
+        <span class="currency">Egp</span>
+      </div>
+    </div>
+  </div>
+</div>

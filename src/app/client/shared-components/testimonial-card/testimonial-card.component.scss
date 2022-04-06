@@ -1,0 +1,44 @@
+.testimonials {
+  position: relative;
+  background-image: url('../../../../assets/images/combined-shape.svg');
+  background-repeat: no-repeat;
+  border-radius: 11px;
+  background-color: #efefef;
+  background-position: 55px top;
+  padding: 40px 30px 15px;
+  width: 85%;
+  margin: auto;
+
+  >img {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: -67px;
+    z-index: 99;
+    left: -44px;
+    border-radius: 6px;
+  }
+
+  .quote {
+    font-style: italic;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  small {
+    font-size: 11px !important;
+    color: #7b7b88;
+  }
+
+  h6 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #373742;
+    margin: 0;
+  }
+}

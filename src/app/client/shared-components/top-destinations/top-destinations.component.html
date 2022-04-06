@@ -1,0 +1,17 @@
+<div class="carousel-wrapper">
+
+  <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+    (afterChange)="afterChange($event)">
+    <div ngxSlickItem *ngFor="let dest of destinations; let i = index" class="slide">
+      <a [ngClass]="{'active' : i === selectedIndex}" (click)="onSelect.emit(dest); selectedIndex = i">
+        <img [src]="dest.media">
+        <span>{{dest.name}}</span>
+      </a>
+    </div>
+  </ngx-slick-carousel>
+  <button class="next-btn" (click)="slickModal.slickGoTo(currentSlide - 1)"><img src="assets/images/cust-arrow-left.svg"
+    alt=""></button>
+  <button class="prev-btn" (click)="slickModal.slickGoTo(currentSlide + 1)"><img src="assets/images/cust-arrow-right.svg"
+    alt=""></button>
+
+</div>

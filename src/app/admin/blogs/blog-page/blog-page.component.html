@@ -1,0 +1,57 @@
+<div class="container">
+  <h3>{{mode}} Blog</h3>
+</div>
+<div class="container bg-white">
+  <form class="tourForm" (ngSubmit)="submit(form)" #form>
+    <div class="row p-4">
+
+      <mat-form-field class="col-md-4 col-12">
+        <mat-label>Select Category</mat-label>
+        <mat-select [(ngModel)]="blog.category_id" name="categoryId">
+          <mat-option *ngFor="let cat of cats" [value]="cat.id">
+            {{cat.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-4 col-12">
+        <mat-label>Blog Title</mat-label>
+        <input matInput type="text" [(ngModel)]="blog.title" name="blogTitle" placeholder="blog title">
+      </mat-form-field>
+
+      <mat-form-field class="col-md-4 col-12">
+        <mat-label>Blog Sub-Title</mat-label>
+        <input matInput type="text" [(ngModel)]="blog.sub_title" name="blogSubTitle" placeholder="blog sub-title">
+      </mat-form-field>
+
+      <mat-form-field class="col-12">
+        <mat-label>Blog Short Description</mat-label>
+        <textarea rows="10"  matInput [(ngModel)]="blog.short_description" name="tripProgram"
+          placeholder="short description"></textarea>
+      </mat-form-field>
+
+      <div class="col-md-4 col-12">
+        <mat-label>Blog Image</mat-label>
+        <img [src]="blog.media" class="rounded mx-2" height="50">
+        <button mat-raised-button type="button" [disabled]="uploadIsLoading" class="mx-3 float-right"
+          (click)="uploadMainImage.click()" color="primary">
+          <app-spinner *ngIf="uploadIsLoading"></app-spinner> Upload
+        </button>
+        <input hidden type="file" #uploadMainImage (change)="onUpload($event)">
+      </div>
+
+      <div class="col-12 mt-3">
+        <app-ck-editor (pageData)="blog.description = $event" [htmlContent]="blog.description"></app-ck-editor>
+      </div>
+
+
+    </div>
+
+    <div class="text-right py-4 mx-2">
+      <button type="submit" class="px-4 py-1" mat-raised-button color="primary">
+        <app-spinner *ngIf="loading"></app-spinner>
+        Submit 
+      </button>
+    </div>
+  </form>
+</div>

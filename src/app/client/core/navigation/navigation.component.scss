@@ -1,0 +1,57 @@
+@import '../../../../assets/scss/variables.scss';
+
+ul {
+  @media(max-width:768px) {
+    margin-top: 15px;
+  }
+
+  li {
+    margin: 0 10px;
+
+    &.active {
+      a {
+        border-bottom: 2px solid $secondaryColor;
+      }
+    }
+
+    @media(max-width:768px) {
+      margin: 0 10px 15px 10px;
+    }
+
+    a {
+      font-weight: 800;
+      padding: 0 5px 8px 0;
+      font-size: 12px;
+      color: #000;
+
+      @media(max-width:768px) {
+        padding: 0 5px 0px 0;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.navbar {
+  position: relative;
+  z-index: 9;
+}
+
+.navbar-dark {
+  .navbar-nav {
+    >li {
+      a {
+        color: #FFF;
+      }
+    }
+  }
+}
+
+@media(max-width:768px) {
+  .navigation-bg {
+    background: #97896f;
+  }
+}

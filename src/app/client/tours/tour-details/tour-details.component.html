@@ -1,0 +1,144 @@
+<div class="bg" [ngStyle]="{'background-image': 'url('+ tour.main_media_path +')'}">
+  <div class="container top-container">
+    <div class="inner">
+
+      <div class="trip-date" *ngIf="tripType === 'public'">
+        <div class="month">{{tour.tour_dates[0]?.tour_date | date:'MMM'}}</div>
+        <div class="day">{{tour.tour_dates[0]?.tour_date | date:'dd'}}</div>
+        <div class="year">{{tour.tour_dates[0]?.tour_date | date:'yyyy'}}</div>
+        <small *ngIf="tour.tour_dates.length > 1" class="text-white">Available also</small>
+        <div *ngFor="let date of tour.tour_dates; let i = index" [ngClass]="{'d-none': i === 0 || i > 1}"
+          class="other-date">
+          <span>{{date.tour_date | date: 'dd MMM yyyy'}}</span>
+        </div>
+        <button *ngIf="tour.tour_dates.length > 2" class="plain-btn text-primary"
+          (click)="showMoreDates = !showMoreDates">{{showMoreDates? 'Show less': 'Show more dates' }}</button>
+        <div *ngFor="let date of tour.tour_dates; let i = index" [ngClass]="{'d-block': i > 1}"
+          class="other-date d-none">
+          <span *ngIf="showMoreDates">{{date.tour_date | date: 'dd MMM yyyy'}}</span>
+        </div>
+      </div>
+
+      <div class="other-details">
+
+        <p>
+          {{tour.destination_name}}
+        </p>
+
+        <h1 class="my-2">
+          <span class="text-white">{{tour.title}}</span>
+        </h1>
+
+        <div class="rate"><img src="assets/images/star.png">
+          <span class="px-1">4.9</span></div>
+
+        <div class="book-now-row">
+          <div class="price">
+            <span>from</span>
+            <span class="price-num">{{tour.tour_price[0]?.price}}</span>
+            <span class="currency">Egp</span>
+          </div>
+          <div class="line"></div>
+          <button (click)="gotoPrices()" class="book-now-btn">
+            <i class="fas fa-location-arrow"></i>
+            <span>Book Now</span>
+          </button>
+          <div class="line2"></div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<section class="no-margin-top">
+  <app-trip-program-section [data]="tour"></app-trip-program-section>
+</section>
+
+<section>
+  <div class="container-fluid p-0">
+    <div class="row m-0">
+      <div class="col-md-6 col-12 p-0">
+        <img [src]="tour.expectation_media_path" class="w-100">
+      </div>
+      <div class="col-md-6 col-12 p-3 bg-cafe d-flex align-items-center">
+        <div class="w-75 mx-auto">
+          <h1 class="mb-4">{{tour.expectation_title}}</h1>
+          <h6 class="lh-2"  class="html-format" [innerHTML]="tour.expectation_description | safe : 'html'"></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid p-0">
+    <div class="row m-0">
+
+      <div class="col-md-6 col-12 p-3 d-flex align-items-center">
+        <div class="w-75 mx-auto">
+          <h1 class="mb-4">Inclusions</h1>
+          <ul class="ordered-list lh-2">
+            <li *ngFor="let inc of tour.inclusions">{{inc}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-12 p-0">
+        <img [src]="tour.inclusions_media_path" class="w-100">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid p-0">
+    <div class="row m-0">
+
+      <div class="col-md-6 col-12 p-0">
+        <img [src]="tour.exclusions_media_path" class="w-100">
+      </div>
+
+      <div class="col-md-6 col-12 p-3 d-flex align-items-center">
+        <div class="w-75 mx-auto">
+          <h1 class="mb-4">Exclusions</h1>
+          <ul class="ordered-list lh-2">
+            <li *ngFor="let exc of tour.exclusions">
+              {{exc}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="prices" class="pt-5 pb-4 border-bottom">
+  <div class="container">
+    <h1 class="pt-5 text-center">The right price for you, whoever you are</h1>
+    <h6 class="text-center">
+      Select number of tickets for you and your friends and check our prices to complete your booking process
+    </h6>
+
+    <div class="row my-5 justify-content-center">
+      <div class="col-lg-3 col-md-4 col-12" *ngFor="let price of tour.tour_price;let i =index">
+        <app-pricing [data]="price"
+          [premium]="i===0 && tripType === 'public' ? true : i===1 && tripType === 'private' ? true : false"
+          [theme]="i > 0 ? 'white' : ''"></app-pricing>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button class="btn-gold">Continue</button>
+    <p class="m-0"><small>You can also form a private group</small></p>
+    <p><small class="text-primary">Form a private group</small></p>
+  </div>
+</section>
+
+<section id="request-form">
+<app-prv-tour-request-form *ngIf="tripType === 'private'"></app-prv-tour-request-form>
+<app-pub-tour-request-form [tour]="tour" *ngIf="tripType === 'public'"></app-pub-tour-request-form>
+</section>

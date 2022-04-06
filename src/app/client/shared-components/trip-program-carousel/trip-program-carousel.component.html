@@ -1,0 +1,86 @@
+  <div class="wrapper">
+    <div class="container" id="slider">
+      <!-- slide 1 -->
+      <div class="slide slide-1">
+        <div class="inner mt-5">
+          <h1>{{data.trip_program_title}}</h1>
+          <h5>{{data.trip_program}}</h5>
+        </div>
+
+        <div class="preview mt-5">
+          <img [src]="data.trip_program_media_path" class="w-100">
+        </div>
+      </div>
+
+      <!-- slide 2-->
+      <div class="slide slide-{{i+2}}" [ngClass]="{'slide-3':i+2 > 2}"
+        *ngFor="let slide of data.tour_details; let i = index">
+        <div class="details mt-5">
+          <small>{{slide.time_range}}</small>
+          <h4 class="my-3">{{slide.title}}</h4>
+          <p  class="html-format" [innerHTML]="slide.description | safe : 'html'"></p>
+        </div>
+        <div class="preview video mt-5" [ngStyle]="{'background-image': 'url('+ slide.media_path +')'}">
+          <!-- <div class="inner">
+            <h5>Giza Pyramids and Sphinx</h5>
+            <h3>Half-Day Private Tour</h3>
+            <small>19 DEC 2019</small>
+          </div> -->
+          <!-- <button class="btn btn-link"><img src="assets/images/play-icon.svg" width="50"></button> -->
+        </div>
+      </div>
+
+      <!-- slide 3
+      <div class="slide slide-3">
+
+        <div class="preview video mt-5" [ngStyle]="{'background-image': 'url(assets/images/day-2.jpg)'}">
+        </div>
+
+        <div class="details mt-5">
+          <small>day 2</small>
+          <h4 class="my-3">Dawar Kitchen</h4>
+          <p>Once out from the station, we will take “Local minivans” to the organization, around 10 minutes drive. (We
+            will pre-arrange with local drivers recommended by the organization to wait for us and take us to Dawar
+            Kitchen)
+            We will enjoy Mediterranean lunch prepared by the beautiful ladies in “Dawar Kitchen”, find more about their
+            initiative then head back all together same way we came.
+            Important: Local minivans is “Microbasat” NOT tourist cars.
+            Check Dawar Kitchen Facebook page to find out more about them.
+            https://www.facebook.com/Dawar.Kitchen/</p>
+        </div>
+      </div> -->
+
+
+      <!-- slide Pricing -->
+      <div class="slide pricing-slide">
+        <div class="inner mt-5">
+          <h4 class="text-center w-50 m-auto my-3">The right price for you, whoever you are</h4>
+
+          <ul class="pricing-list my-4">
+            <li *ngFor="let price of data.tour_price;let i = index">
+              <app-pricing [data]="price"
+                [premium]="i===0 && data.tour_type === 'public' ? true : i===1 && data.tour_type === 'private' ? true : false">
+              </app-pricing>
+            </li>
+          </ul>
+
+          <div class="text-center">
+            <button class="btn-gold">Continue</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <div class="container">
+
+        <button [disabled]="scrollAmount <= 0" (click)="onSlide('left')" class="btn btn-link"><img
+            src="assets/images/trip-left-arrow.svg"></button>
+        <button [disabled]="scrollAmount >= maxScroll" (click)="onSlide('right')" class="btn btn-link"><img
+            src="assets/images/trip-right-arrow.svg"></button>
+      </div>
+
+    </footer>
+
+  </div>

@@ -1,0 +1,36 @@
+<h5>{{data.type === 'add' ? 'Create' : 'Update'}} New Customer</h5>
+
+<form (ngSubmit)="submit()">
+
+  <mat-form-field class="w-100">
+    <mat-label>Customer Name</mat-label>
+    <input matInput type="text" [(ngModel)]="customer.name" name="name" placeholder="Customer Name">
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Customer Country</mat-label>
+    <input matInput type="text" [(ngModel)]="customer.country" name="country" placeholder="Customer Country">
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Testimonial</mat-label>
+    <textarea rows="10"  matInput [(ngModel)]="customer.customer_quote" name="testimonials" placeholder="Testimonials"></textarea>
+  </mat-form-field>
+
+  <div class="w-100">
+    <mat-label>Customer Image</mat-label>
+    <button [disabled]="uploadIsLoading" mat-raised-button type="button" class="mx-3 float-right"
+      (click)="uploadMainImage.click()">
+      <app-spinner [theme]="'text-warning'" *ngIf="uploadIsLoading"></app-spinner> Upload
+    </button>
+    <input hidden type="file" (change)="onUpload($event)" #uploadMainImage>
+    <div class="w-100">
+      <img [src]="customer.media_path" class="img-fluid">
+    </div>
+  </div>
+
+
+  <button mat-raised-button color="primary" class="btn-block mt-4" type="submit">
+    <app-spinner *ngIf="loading"></app-spinner> {{data.type === 'add' ? 'Create' : 'Update'}}
+  </button>
+</form>

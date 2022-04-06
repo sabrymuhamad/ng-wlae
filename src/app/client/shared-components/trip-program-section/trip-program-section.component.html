@@ -1,0 +1,31 @@
+<div class="wrapper py-5">
+    <div class="container">
+
+        <div class="row align-items-center">
+            <div class="col-md-6 col-12">
+                <div class="preview">
+                    <img [src]="data.trip_program_media_path" class="w-100">
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <h1 class="pt-2">{{data.trip_program_title}}</h1>
+                <h5>{{data.trip_program}}</h5>
+            </div>
+        </div>
+
+        <div class="row pt-5 details-list" *ngFor="let slide of data.tour_details; let i = index">
+            <div class="col-md-6 col-12">
+                <div class="preview">
+                    <img [src]="slide.media_path" class="w-100">
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="details">
+                    <small>{{slide.time_range}}</small>
+                    <h4 class="my-3">{{slide.title}}</h4>
+                    <p class="html-format" [innerHTML]="slide.description | safe : 'html'"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

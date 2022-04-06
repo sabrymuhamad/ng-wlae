@@ -1,0 +1,19 @@
+<h5>{{data.type === 'add' ? 'Create' : 'Update'}} FAQ</h5>
+<hr>
+<form>
+
+  <mat-form-field class="w-100">
+    <mat-label>Question</mat-label>
+    <textarea rows="10"  matInput [(ngModel)]="data.faq.question" name="Question" placeholder="FAQ Name"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Answer</mat-label>
+    <textarea rows="10"  matInput [(ngModel)]="data.faq.answer" name="Answer" placeholder="FAQ Answer"></textarea>
+  </mat-form-field>
+
+  <button (click)="submit()" mat-raised-button color="primary" class="mt-4" type="submit">
+    <app-spinner *ngIf="loading"></app-spinner> {{data.type === 'add' ? 'Create' : 'Update'}}
+  </button>
+  <button (click)="dismiss()" mat-button class="mt-4" type="submit">Cancel</button>
+</form>

@@ -1,0 +1,40 @@
+<h5>{{data.type === 'add' ? 'Create' : 'Update'}} New Area</h5>
+
+<form>
+
+  <mat-form-field class="w-100">
+    <mat-label>Title</mat-label>
+    <input matInput type="text" [(ngModel)]="area.title" name="title" placeholder="Main Title">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Sub Title</mat-label>
+    <input matInput type="text" [(ngModel)]="area.sub_title" name="sub_title" placeholder="Sub Title">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Tag</mat-label>
+    <input matInput type="text" [(ngModel)]="area.tag" name="tag" placeholder="Tag">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Button Text</mat-label>
+    <input matInput type="text" [(ngModel)]="area.btn_name" name="btn_txt" placeholder="Button Text">
+  </mat-form-field>
+  <mat-form-field class="w-100">
+    <mat-label>Link</mat-label>
+    <input matInput type="text" [(ngModel)]="area.btn_link" name="link" placeholder="Link">
+  </mat-form-field>
+
+  <div class="w-100">
+    <mat-label>Image</mat-label>
+    <button [disabled]="uploadIsLoading" mat-raised-button type="button" class="mx-3 float-right" (click)="uploadMainImage.click()">
+      <app-spinner [theme]="'text-warning'" *ngIf="uploadIsLoading"></app-spinner> Upload</button>
+    <input hidden type="file" (change)="onUpload($event)" #uploadMainImage>
+    <div class="w-100">
+      <img [src]="area.media_path" class="img-fluid">
+    </div>
+  </div>
+
+
+  <button (click)="submit()" mat-raised-button color="primary" class="btn-block mt-4" type="submit">
+    <app-spinner *ngIf="loading"></app-spinner> {{data.type === 'add' ? 'Create' : 'Update'}}
+  </button>
+</form>

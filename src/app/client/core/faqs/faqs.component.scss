@@ -1,0 +1,13 @@
+::ng-deep {
+  .mat-expansion-panel-header {
+    flex-direction: row-reverse !important;
+  }
+
+  .mat-content {
+    padding-left: 20px;
+  }
+
+  .mat-expansion-indicator::after {
+    color: #ffc973;
+  }
+}

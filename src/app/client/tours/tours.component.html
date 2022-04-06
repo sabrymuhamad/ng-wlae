@@ -1,0 +1,53 @@
+<div class="bg d-flex justify-content-center align-items-center"
+  [style.background-image]="tripType === 'private'? 'url(assets/images/public-tours-hero-image.jpg)' : 'url(assets/images/private-tours-hero-image.jpg)'">
+  <div class="text-center">
+    <h1 class="my-4 text-white">
+      {{tripType === 'public'? 'Public' : 'Private'}} Tours
+    </h1>
+    <h6 class="text-uppercase text-white">
+      Explore the Hidden Gems of Cairo while supporting a good <br>cause.
+    </h6>
+  </div>
+
+</div>
+
+<div class="container">
+  <section class="text-center mt-minus">
+    <h1>Trip Planning Made Easy</h1>
+    <p>Tell us where and when you are going, with a wish list of what you want from your holiday. The best suited local
+      guides will design tour proposals just for you. Choose your guide, and you are all set for a great holiday!</p>
+  </section>
+
+  <section class="text-center mt-5">
+    <h3>Top Destinations</h3>
+    <div class="my-4">
+      <app-top-destinations (onSelect)="onSelectDest($event)"></app-top-destinations>
+    </div>
+  </section>
+
+  <section class="mt-5">
+    <h3>{{selectedDest?.name}} Group tours</h3>
+    <div class="my-4">
+      <ngx-masonry [options]="masonryOptions">
+        <div ngxMasonryItem class="masonry-item" *ngFor="let item of masonryItems">
+          <app-tour-card [data]="item" [width]="350" [height]="item.height"></app-tour-card>
+        </div>
+      </ngx-masonry>
+    </div>
+  </section>
+
+  <section class="mt-5" *ngIf="tripType === 'public'">
+    <h3 class="text-center">Tours Calender</h3>
+    <h6 class="text-center mb-4">Check our upcoming tours of the year</h6>
+    <app-tours-calendar></app-tours-calendar>
+  </section>
+
+  <section class="mt-5" *ngIf="tripType === 'private'">
+    <app-contact-widget></app-contact-widget>
+  </section>
+
+
+</div>
+<section class="mt-5">
+  <app-newsletter></app-newsletter>
+</section>

@@ -1,0 +1,19 @@
+<div class="border-bottom pb-5">
+    <div class="container">
+        <h1 class="mt-5 pt-5 text-center">FAQs</h1>
+        <h5 class="text-center mb-5">Get answers to the most frequently asked questions.</h5>
+        <app-client-spinner [theme]="'text-primary'" *ngIf="loading" [type]="'absolute'" [size]="'x2'"></app-client-spinner>
+      
+        <mat-accordion class="mt-5">
+          <mat-expansion-panel *ngFor="let faq of faqs;let i = index" [expanded]="i === 0">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h5>{{faq.question}}</h5>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p  class="html-format" [innerHTML]="faq.answer | safe : 'html'"></p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      
+      </div>      
+</div>

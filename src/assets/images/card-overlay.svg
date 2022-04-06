@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="340" height="406" viewBox="0 0 340 406">
+    <defs>
+        <linearGradient id="prefix__c" x1="50%" x2="50%" y1="50%" y2="74.943%">
+            <stop offset="0%" stop-opacity="0"/>
+            <stop offset="100%"/>
+        </linearGradient>
+        <filter id="prefix__a" width="142.7%" height="135.7%" x="-21.3%" y="-17.8%" filterUnits="objectBoundingBox">
+            <feOffset dx="10" dy="14" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="12"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0.445765399 0 0 0 0 0.445765399 0 0 0 0 0.445765399 0 0 0 0.304496285 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <rect id="prefix__b" width="340.003" height="406" x="0" y="0" rx="5"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd" filter="url(#prefix__a)" transform="translate(-1 -1)">
+        <g transform="translate(1 1)">
+            <use fill="url(#prefix__c)" opacity=".8" xlink:href="#prefix__b"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,65 @@
+<app-top-slide></app-top-slide>
+<app-upcoming-group-tours></app-upcoming-group-tours>
+
+<section class="private-tours">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-5 col-12">
+        <h1>Private Tours</h1>
+        <h5>Keep your wanderlust feeling while being taken care of by “WLE Professional Tour Guides”. Our team of tour
+          guides
+          has been carefully selected to give you one in a life time experience. </h5>
+        <button class="btn btn-black mt-3">View all</button>
+      </div>
+      <div class="col-md-7 col-12">
+        <ul>
+          <li *ngFor="let tour of privateTours;let i = index" [ngClass]="{'align-self-end': i == 0}"
+            [ngStyle]="{'margin-left' : i == 2 ? '53px' : '0'}">
+            <app-tour-card [showCalendar]="false" [data]="tour"
+              [height]="i === 0 ? 246 : i === 1 ? 306 : i === 2 ? 194 : 228"
+              [width]="i === 0 ? 246 : i === 1 ? 306 : i === 2 ? 194 : 228"></app-tour-card>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="public-tours">
+  <div class="container">
+    <h1 class="text-center">Public Tours</h1>
+    <h5 class="w-75 mx-auto text-center mb-4">We offer special interesting group tours on the weekends (Fri-Sat). Follow
+      our events section on the page to be updated.</h5>
+    <div class="row">
+      <div *ngFor="let tour of publicTours;let i = index" [ngClass]="{'col-md-8' : i === 0, 'col-md-4' : i > 0 }"
+        class="col-12 mb-4">
+        <app-tour-card [data]="tour" [height]="380"></app-tour-card>
+      </div>
+
+      <div class="col-12 text-center mb-4">
+        <button class="btn btn-black mt-3" routerLink="/client/tours" [queryParams]="{type:'public',trip:true}">View
+          all</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <app-vertical-carousel [slides]="hiddenGems"></app-vertical-carousel>
+</section>
+
+<section>
+  <h1 class="text-center">Hear from our customers</h1>
+  <h5 class="w-75 mx-auto text-center mb-5">Our customers love Walk Like An Egyptian</h5>
+  <app-our-customers></app-our-customers>
+</section>
+
+<section>
+  <div class="container">
+    <app-our-partners></app-our-partners>
+  </div>
+</section>
+
+<section>
+  <app-newsletter></app-newsletter>
+</section>

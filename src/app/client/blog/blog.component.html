@@ -1,0 +1,27 @@
+<div class="container">
+  <app-client-spinner [theme]="'text-primary'" *ngIf="loading"></app-client-spinner>
+  <h1 class="text-center my-4">Our Blog</h1>
+  <h6 class="text-center mb-5">We've scoured web rankings and social media to compile the ultimate list of travel's most
+    important, useful, and
+    entertaining blogs.</h6>
+
+  <ul class="blog-tabs mb-5">
+    <li *ngFor="let category of categories;let i = index" [ngClass]="{'active' : i === selectedIndex}" class="mx-2">
+      <button (click)="onSelectCategory(i, category.id)">{{category.name}}</button></li>
+  </ul>
+
+  <div class="row blog-wrapper">
+
+    <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
+      *ngFor="let blog of blogs; let i = index" class="mb-4"
+      [ngClass]="{'col-md-8 col-12': i === 0, 'col-md-4 col-12 mb-4' : i > 0}">
+      <app-blog-item [data]="blog"></app-blog-item>
+    </div>
+
+    <div class="loading" *ngIf="scrollLoading">
+      <p>Loading more…</p>
+      <div class="spinner-border text-secondary" role="status"></div>
+    </div>
+
+  </div>
+</div>

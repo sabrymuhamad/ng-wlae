@@ -1,0 +1,50 @@
+<div class="block-spinner">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>
+  
+  <div class="container">
+    <div class="page-header">
+      <h3 class="page-title"> Contact Us </h3>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/admin/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+        </ol>
+      </nav>
+    </div>
+  
+    <div class="p-3 bg-white">
+        <form (ngSubmit)="submit()">
+            <mat-form-field class="w-100">
+              <mat-label>Title</mat-label>
+              <input matInput type="text" [(ngModel)]="contactUs.title" name="title" placeholder="Main Title">
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Description</mat-label>
+              <textarea rows="10"  matInput [(ngModel)]="contactUs.description" name="description" placeholder="Description"></textarea>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Working Hours</mat-label>
+              <textarea rows="10"  matInput [(ngModel)]="contactUs.workingHours" name="workingHours" placeholder="Working Hours"></textarea>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Email</mat-label>
+              <input matInput type="text" [(ngModel)]="contactUs.email" name="email" placeholder="Email">
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Address</mat-label>
+              <textarea rows="10"  matInput [(ngModel)]="contactUs.address" name="Address" placeholder="Address"></textarea>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Phone Number</mat-label>
+              <input matInput type="text" [(ngModel)]="contactUs.phone" name="Phone" placeholder="Phone Number">
+            </mat-form-field>
+            
+        
+            <button mat-raised-button color="primary" class="mt-4" type="submit">
+              <app-spinner *ngIf="loading"></app-spinner> Save
+            </button>
+          </form>
+    </div>
+  </div>
+  

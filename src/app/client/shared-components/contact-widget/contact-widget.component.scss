@@ -1,0 +1,14 @@
+.contact-box {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px;
+  border: solid 1px rgba(151, 151, 151, 0.4);
+  background-color: #ffffff;
+  align-items: center;
+  padding: 35px 45px;
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #020202;
+  }
+}

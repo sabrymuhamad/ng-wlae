@@ -1,0 +1,16 @@
+<div class="card" routerLink="/client/blog/details/{{data.id}}"
+  [ngStyle]="{'background-image': 'url('+data?.media+')', 'height.px':height, 'width.px': width}">
+  <div class="inner p-3">
+    <div class="calendar">
+      {{data.created_at | date}}
+    </div>
+    <h5>{{data.title}}</h5>
+    <ul class="users">
+      <li><img src="assets/images/user-image-1.png" class="rounded-circle" width="33" height="33"></li>
+      <li><img src="assets/images/user-image-2.png" class="rounded-circle" width="33" height="33"></li>
+      <li><img src="assets/images/user-image-3.png" class="rounded-circle" width="33" height="33"></li>
+      <li><img src="assets/images/user-image-4.png" class="rounded-circle" width="33" height="33"></li>
+      <li><img src="assets/images/user-image-5.png" class="rounded-circle" width="33" height="33"></li>
+    </ul>
+  </div>
+</div>

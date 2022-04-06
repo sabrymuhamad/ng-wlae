@@ -1,0 +1,30 @@
+.author-block {
+  display: flex;
+  align-items: center;
+
+  >div {
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.bg {
+  background-image: url('../../../../assets/images/blog-image-1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  height: 470px;
+  z-index: 0;
+}
+
+.social-menu {
+  a {
+    color: #666666
+  }
+}
+
+.title-lh{
+  line-height: 21px;
+}

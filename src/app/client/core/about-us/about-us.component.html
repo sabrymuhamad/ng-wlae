@@ -1,0 +1,66 @@
+<div class="about-us pb-5">
+  <div class="page-bg"></div>
+  <app-client-spinner *ngIf="loading" [type]="'absolute'" [size]="'x2'"></app-client-spinner>
+  <div class="bg d-flex justify-content-center align-items-center">
+    <div class="text-center">
+      <h1 class="my-4 animate__animated animate__fadeInDown text-white">
+        {{pageData.title}}
+      </h1>
+      <h6 class="w-75 lh-2 m-auto animate__animated animate__fadeInDown animate__delay-1s text-white">
+        {{pageData.description}}
+      </h6>
+    </div>
+
+  </div>
+
+  <div class="mt-minus">
+    <div class="container">
+      <div  class="html-format" [innerHTML]="pageData.content | safe : 'html'" class="row w-75 mx-auto">
+        <h3 class="text-white mb-4">Our Story</h3>
+        <p class="text-white mb-4 lh-2 ls-1">
+          Touring experiences committed to share the passion of Egyptian heritage, history and culture to the world with
+          a world class service and trusted company focused on the authentic and contemporary side of Egypt.
+          We are proud to be Egypt’s first off the beaten track tours in Egypt and introducers of Walking tours to
+          Egypt.<br>
+          Our dream started back in 2012, Our regular Walking Tours and great success started to shine since January
+          2015<br>
+        </p>
+
+        <h3 class="text-white"> Who we are and what we can help you with?</h3>
+        <p class="text-white mb-4 lh-2 ls-1">
+          We are a registered company and Experts of Egypt Hidden Gems that can help you organize your dream tour/trip.
+          We offer customized private tours and group tours (walking tours in Cairo and overnight trips from Cairo). Our
+          guides are world class tour guides: knowledgeable, experienced, trusted and fun to be around!<br>
+          We promise authentic, unique & value tours!<br>
+          Our Values: Win-Win, Honesty, High Service.<br>
+        </p>
+
+        <h3 class="text-white">Wall of honor</h3>
+        <p class="text-white mb-4 lh-2 ls-1">
+          TripAdvisor Certificate of Excellence 3 years in row: 2017 - 2018 - 2019<br>
+          Mentioned in international medias like RadioSwiss , National Geographic travel and Ozy. As well as local media
+          like Nile TV , EgyptToday and CairoScene.<br>
+          Our team had the pleasure serving top VIP guests like:<br>
+          Top international corporate companies CEO’s, Head of HR, Embassies high profile guests and many more.<br>
+          Among the list of our VIP guests is Senate Juan Miguel Zubiri (Senate of the Philippines
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="mt-5">
+  <div class="container">
+    <app-management-team></app-management-team>
+  </div>
+</section>
+
+<section class="mt-5">
+  <div class="container">
+    <app-our-partners></app-our-partners>
+  </div>
+</section>
+
+<section class="mt-5">
+  <app-newsletter></app-newsletter>
+</section>
