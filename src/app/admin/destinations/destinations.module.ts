@@ -7,6 +7,7 @@ import { AddDestinationComponent } from './add-destination/add-destination.compo
 import { MaterialsModule } from 'src/app/materials/materials.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SharedModule } from '../shared/shared.module';
     DestinationsRoutingModule,
     MaterialsModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    PipesModule
   ]
 })
 export class DestinationsModule { }

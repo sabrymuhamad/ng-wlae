@@ -23,7 +23,6 @@ export class AddDestinationComponent implements OnInit {
   }
   ngOnInit(): void {
     if (this.data.type === 'edit') {
-      console.log(this.data)
       this.name = this.data.data.name;
       this.imgUrl = this.data.data.media;
     }
@@ -35,14 +34,14 @@ export class AddDestinationComponent implements OnInit {
       this.uploadIsLoading = true;
 
       let formData = new FormData();
-      formData.append('selectedFile', elem.files[0]);
+      formData.append('file', elem.files[0]);
 
       this.destService.upload(formData).subscribe((res: any) => {
         this.uploadIsLoading = false;
         if (res.statusCode === 200) {
           this.toastr.success('Image is uploaded successfully');
-          this.media_id = res.response.id;
-          this.imgUrl = res.response.thumb_image;
+          this.media_id = res._id;
+          this.imgUrl = res.filePath;
         } else {
           this.toastr.error('Please try again!', 'Error uploading image');
         }

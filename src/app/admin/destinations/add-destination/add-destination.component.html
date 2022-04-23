@@ -15,7 +15,7 @@
       </button>
       <input hidden type="file" (change)="onUpload($event)" #uploadMainImage>
       <div class="w-100">
-        <img [src]="imgUrl" class="img-fluid">
+        <img [src]="imgUrl | safe: 'resourceUrl'" class="img-fluid">
       </div>
     </div>
 

@@ -35,24 +35,25 @@ export class AddEditTourComponent implements OnInit {
     this.tourType = this.route.snapshot.paramMap.get('type');
     this.route.queryParams.subscribe((params) => {
       this.mode = params.mode;
-      this.tourId = +params.id
+      this.tourId = params.id;
     });
     this.getDestinations();
     if (this.mode === 'edit') {
-      this.tourService.view(this.tourType, this.tourId).subscribe((data: any) => {
+      console.log(this.tourId)
+      this.tourService.view(this.tourId).subscribe((res: any) => {
         this.inclusions = [];
         this.exclusions = [];
-        this.tour = data.response;
+        this.tour = res.data;
         this.bindPricesBack();
-        data.response.inclusions.filter((el) => {
+        res.data.inclusions.filter((el) => {
           this.inclusions.push({ desc: el })
         });
-        data.response.exclusions.filter((el) => {
+        res.data.exclusions.filter((el) => {
           this.exclusions.push({ desc: el })
         });
 
-        if (data.response.tour_dates.length > 0) {
-          this.publicToursDates = data.response.tour_dates;
+        if (res.data.tour_dates.length > 0) {
+          this.publicToursDates = res.data.tour_dates;
         }
       })
     }
@@ -140,7 +141,7 @@ export class AddEditTourComponent implements OnInit {
       this.uploadIsLoading = true;
 
       let formData = new FormData();
-      formData.append('selectedFile', elem.files[0]);
+      formData.append('file', elem.files[0]);
 
       this.tourService.upload(formData).subscribe((res: any) => {
         this.uploadIsLoading = false;
@@ -160,28 +161,28 @@ export class AddEditTourComponent implements OnInit {
   manageUploadsTypes(type, res, index?) {
     switch (type) {
       case 'main_media':
-        this.tour.main_media_id = res.response.id;
-        this.tour.main_media_path = res.response.thumb_image;
+        this.tour.main_media_id = res.id;
+        this.tour.main_media_path = res.filePath;
         break;
       case 'trip_program':
-        this.tour.trip_program_media_id = res.response.id;
-        this.tour.trip_program_media_path = res.response.thumb_image;
+        this.tour.trip_program_media_id = res.id;
+        this.tour.trip_program_media_path = res.filePath;
         break;
       case 'expectation':
-        this.tour.expectation_media_id = res.response.id;
-        this.tour.expectation_media_path = res.response.thumb_image;
+        this.tour.expectation_media_id = res.id;
+        this.tour.expectation_media_path = res.filePath;
         break;
       case 'inclusions':
-        this.tour.inclusions_media_id = res.response.id;
-        this.tour.inclusions_media_path = res.response.thumb_image;
+        this.tour.inclusions_media_id = res.id;
+        this.tour.inclusions_media_path = res.filePath;
         break;
       case 'exclusions':
-        this.tour.exclusions_media_id = res.response.id;
-        this.tour.exclusions_media_path = res.response.thumb_image;
+        this.tour.exclusions_media_id = res.id;
+        this.tour.exclusions_media_path = res.filePath;
         break;
       case 'tour_details':
-        this.tour.tour_details[index].media_id = res.response.id;
-        this.tour.tour_details[index].media_path = res.response.thumb_image;
+        this.tour.tour_details[index].media_id = res.id;
+        this.tour.tour_details[index].media_path = res.filePath;
         break;
     }
   }

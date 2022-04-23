@@ -28,10 +28,10 @@ export class ManageToursComponent implements OnInit {
 
   getAllTours() {
     this.loading = true;
-    this.tourService.list(this.tourType, this.pageNum, this.perPage).subscribe((data: any) => {
+    this.tourService.list(this.tourType, this.pageNum, this.perPage).subscribe((res: any) => {
       this.loading = false;
-      this.tours = data.response.data;
-      this.totalElements = data.response.meta.total;
+      this.tours = res.data;
+      this.totalElements = res.meta.total;
     })
   }
   onPaginationChabge(e) {

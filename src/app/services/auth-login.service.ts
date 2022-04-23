@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { ProxyUrl } from '../api';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthLoginService {
+export class AuthLoginService extends ApiService {
 
   makeHeaders() {
     let options = {
@@ -17,13 +17,15 @@ export class AuthLoginService {
     }
     return options;
   }
-  constructor(private http: HttpClient, private router: Router, private proxy: ProxyUrl) { }
+  constructor(private http: HttpClient, private router: Router) { 
+    super()
+  }
 
   login(user) {
-    return this.http.post(this.proxy.api + 'api/admin/login', user, { headers: this.makeHeaders() }).pipe(map(
+    return this.http.post(this.api() + 'api/auth', user, { headers: this.makeHeaders() }).pipe(map(
       (res: any) => {
-        if (res && res.access_token) {
-          localStorage.setItem('wleToken', res.access_token);
+        if (res && res.token) {
+          localStorage.setItem('wleToken', res.token);
           localStorage.setItem('wleUser', JSON.stringify(res.user));
           return res
         } else

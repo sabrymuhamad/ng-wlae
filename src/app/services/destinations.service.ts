@@ -1,33 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ProxyUrl } from '../api';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DestinationsService {
-  makeHeaders() {
-    let options = {
-      'Authorization': 'bearer ' + localStorage.getItem('wleToken')
-    }
-    return options;
-  }
+export class DestinationsService extends ApiService {
 
-  constructor(private http: HttpClient, private proxy: ProxyUrl) { }
+  constructor(private http: HttpClient) { super(); }
 
   create(destName, media_id) {
-    return this.http.post(this.proxy.api + `api/admin/destination`, { name: destName, media_id:media_id }, { headers: this.makeHeaders() })
+    return this.http.post(this.api() + `api/destinations`, { name: destName, media_id:media_id }, { headers: this.makeHeaders() })
   }
   update(id, dest) {
-    return this.http.put(this.proxy.api + `api/admin/destination/${id}`, dest, { headers: this.makeHeaders() })
+    return this.http.put(this.api() + `api/destinations/${id}`, dest, { headers: this.makeHeaders() })
   }
   delete(id) {
-    return this.http.delete(this.proxy.api + `api/admin/destination/${id}`, { headers: this.makeHeaders() })
+    return this.http.delete(this.api() + `api/destinations/${id}`, { headers: this.makeHeaders() })
   }
   getAll(per_page, pageNum) {
-    return this.http.get(this.proxy.api + `api/admin/destination?per_page=${per_page}&page=${pageNum}`, { headers: this.makeHeaders() })
+    return this.http.get(this.api() + `api/destinations?per_page=${per_page}&page=${pageNum}`, { headers: this.makeHeaders() })
   }
   upload(data: FormData) {
-    return this.http.post(this.proxy.api + `api/admin/upload`, data, { headers: this.makeHeaders() })
+    return this.http.post(this.api() + `api/file/singleFile`, data, { headers: this.makeHeaders() })
   }
 }
