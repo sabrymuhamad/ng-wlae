@@ -14,7 +14,7 @@
         <app-spinner [theme]="'text-warning'" *ngIf="uploadIsLoading"></app-spinner> Upload
       </button>
       <input hidden type="file" (change)="onUpload($event)" #uploadMainImage>
-      <div class="w-100">
+      <div *ngIf="imgUrl" class="w-100">
         <img [src]="imgUrl | safe: 'resourceUrl'" class="img-fluid">
       </div>
     </div>

@@ -13,8 +13,8 @@ export class ToursService extends ApiService {
     return this.http.post(this.api() + `api/file/singleFile`, data, { headers: this.makeHeaders() })
   }
 
-  create(tour, type) {
-    return this.http.post(this.api() + `api/admin/${type}/tour`, tour, { headers: this.makeHeaders() })
+  create(tour) {
+    return this.http.post(this.api() + `api/tours`, tour, { headers: this.makeHeaders() })
   }
 
   view(id) {
@@ -22,11 +22,11 @@ export class ToursService extends ApiService {
   }
 
   update(type, id, tour) {
-    return this.http.put(this.api() + `api/admin/${type}/tour/${id}`, tour, { headers: this.makeHeaders() })
+    return this.http.put(this.api() + `api/tours/${id}`, tour, { headers: this.makeHeaders() })
   }
 
   delete(id, type) {
-    return this.http.delete(this.api() + `api/admin/${type}/tour/${id}`, { headers: this.makeHeaders() })
+    return this.http.delete(this.api() + `api/tours/${id}`, { headers: this.makeHeaders() })
   }
 
   list(type, page, per_page) {

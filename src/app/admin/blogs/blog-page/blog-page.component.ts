@@ -33,7 +33,7 @@ export class BlogPageComponent implements OnInit {
     this.loading = true;
     this.blogService.view(this.blogId).subscribe((res: any) => {
       this.loading = false;
-      this.blog = res.response;
+      this.blog = res.data;
     }, (err) => {
       this.loading = false;
     })
@@ -41,7 +41,7 @@ export class BlogPageComponent implements OnInit {
 
   getCategories() {
     this.catService.getAll(9999, 1).subscribe((res: any) => {
-      this.cats = res.response.data;
+      this.cats = res.data;
     })
   }
 
@@ -51,14 +51,14 @@ export class BlogPageComponent implements OnInit {
       this.uploadIsLoading = true;
 
       let formData = new FormData();
-      formData.append('selectedFile', elem.files[0]);
+      formData.append('file', elem.files[0]);
 
       this.blogService.upload(formData).subscribe((res: any) => {
         this.uploadIsLoading = false;
         if (res.statusCode === 200) {
           this.toastr.success('Image is uploaded successfully');
-          this.blog.media_id = res.response.id;
-          this.blog.media = res.response.thumb_image;
+          this.blog.media_id = res._id;
+          this.blog.media = res.filePath;
         } else {
           this.toastr.error('Please try again!', 'Error uploading image');
         }
@@ -74,24 +74,20 @@ export class BlogPageComponent implements OnInit {
     if (this.mode === 'add') {
       this.blogService.create(this.blog).subscribe((res: any) => {
         this.loading = false;
-        if (res.statusCode === 200) {
+     
           this.toastr.success('Blog Created successfully!');
           form.reset();
-        } else {
-          this.toastr.error(res.errors[0]);
-        }
+   
       }, (err) => {
         this.loading = false;
         this.toastr.error(err.statusText, 'Something went wrong, please try again');
       })
     } else if (this.mode === 'edit') {
-      this.blogService.update(this.blog.id, this.blog).subscribe((res: any) => {
+      this.blogService.update(this.blog._id, this.blog).subscribe((res: any) => {
         this.loading = false;
-        if (res.statusCode === 200) {
+     
           this.toastr.success('Blog updated successfully!');
-        } else {
-          this.toastr.error(res.errors[0]);
-        }
+  
       }, (err) => {
         this.loading = false;
         this.toastr.error(err.statusText, 'Something went wrong, please try again');

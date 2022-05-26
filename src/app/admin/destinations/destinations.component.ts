@@ -68,10 +68,10 @@ export class DestinationsComponent implements OnInit {
   delete(id) {
     this.loading = true;
     this.destService.delete(id).subscribe((res: any) => {
-      if (res.statusCode == 200) {
+    
         this.getAllDests();
         this.loading = false;
-      }
+   
     })
   }
 

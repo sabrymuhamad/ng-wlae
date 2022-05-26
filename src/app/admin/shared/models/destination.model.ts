@@ -1,5 +1,5 @@
 export class Destination {
-    id: number;
+    _id: number;
     media: string;
     media_id: number;
     name: string;

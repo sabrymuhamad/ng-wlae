@@ -4,5 +4,5 @@ export class Customer {
     country: string;
     customer_quote: string;
     media_path: string;
-    id: number;
+    _id: number;
 }

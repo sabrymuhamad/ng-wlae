@@ -25,6 +25,7 @@ export class AddDestinationComponent implements OnInit {
     if (this.data.type === 'edit') {
       this.name = this.data.data.name;
       this.imgUrl = this.data.data.media;
+      console.log(this.data)
     }
   }
 
@@ -55,7 +56,7 @@ export class AddDestinationComponent implements OnInit {
   submit() {
     this.loading = true;
     if (this.data.type === 'add') {
-      this.destService.create(this.name, this.media_id).subscribe((res) => {
+      this.destService.create(this.name, this.media_id, this.imgUrl).subscribe((res) => {
         this.loading = false;
         this.dialogRef.close({ status: 'succeeded' });
         this.toastr.success('Destination Added!');
@@ -66,9 +67,10 @@ export class AddDestinationComponent implements OnInit {
     } else if (this.data.type === 'edit') {
       let dest = {
         name: this.name,
-        media_id: this.media_id
+        media_id: this.media_id,
+        media:this.imgUrl
       }
-      this.destService.update(this.data.data.id, dest).subscribe((res) => {
+      this.destService.update(this.data.data._id, dest).subscribe((res) => {
         this.loading = false;
         this.dialogRef.close({ status: 'succeeded' });
         this.toastr.success('Destination Updated!');

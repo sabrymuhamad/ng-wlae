@@ -1,5 +1,5 @@
 export class Partner {
-    id:number;
+    _id:number;
     media_id:number;
     name:string;
     media_path:string;

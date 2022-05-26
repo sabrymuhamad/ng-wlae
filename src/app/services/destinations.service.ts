@@ -9,8 +9,8 @@ export class DestinationsService extends ApiService {
 
   constructor(private http: HttpClient) { super(); }
 
-  create(destName, media_id) {
-    return this.http.post(this.api() + `api/destinations`, { name: destName, media_id:media_id }, { headers: this.makeHeaders() })
+  create(destName, media_id,mediaUrl) {
+    return this.http.post(this.api() + `api/destinations`, { name: destName, media_id:media_id, media:mediaUrl }, { headers: this.makeHeaders() })
   }
   update(id, dest) {
     return this.http.put(this.api() + `api/destinations/${id}`, dest, { headers: this.makeHeaders() })

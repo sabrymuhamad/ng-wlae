@@ -8,7 +8,7 @@
       <mat-form-field class="col-md-4 col-12">
         <mat-label>Select Category</mat-label>
         <mat-select [(ngModel)]="blog.category_id" name="categoryId">
-          <mat-option *ngFor="let cat of cats" [value]="cat.id">
+          <mat-option *ngFor="let cat of cats" [value]="cat._id">
             {{cat.name}}
           </mat-option>
         </mat-select>

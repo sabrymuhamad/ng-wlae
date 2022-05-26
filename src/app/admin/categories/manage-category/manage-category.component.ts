@@ -40,7 +40,7 @@ export class ManageCategoryComponent implements OnInit {
       })
     } else if (this.data.type === 'edit') {
 
-      this.catService.update(this.data.data.id, this.category).subscribe((res) => {
+      this.catService.update(this.data.data._id, this.category).subscribe((res) => {
         this.loading = false;
         this.dialogRef.close({ status: 'succeeded' });
         this.toastr.success('Destination Updated!');

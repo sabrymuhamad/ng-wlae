@@ -26,8 +26,8 @@ export class CustomersComponent implements OnInit {
   getAllCustomers() {
     this.loading = true;
     this.customerService.getAll(20, this.pageNum).subscribe((customers: any) => {
-      this.customers = customers.response.data;
-      this.totalElements = customers.response.meta.total;
+      this.customers = customers.data;
+      // this.totalElements = customers.response.meta.total;
       this.loading = false;
     }, (err) => {
       this.toastr.error('something went wrong')
@@ -67,10 +67,10 @@ export class CustomersComponent implements OnInit {
   delete(id) {
     this.loading = true;
     this.customerService.delete(id).subscribe((res: any) => {
-      if (res.statusCode == 200) {
+
         this.getAllCustomers();
         this.loading = false;
-      }
+
     })
   }
 

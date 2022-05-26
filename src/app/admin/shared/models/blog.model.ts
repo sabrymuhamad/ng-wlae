@@ -7,6 +7,6 @@ export class Blog {
     media_id: number;
     media: string;
     category_name: string;
-    id: number;
+    _id: number;
     created_at: string;
 }

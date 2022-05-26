@@ -32,7 +32,7 @@
           <td mat-cell *matCellDef="let element">
             <button mat-icon-button type="button" (click)="updateCategoryModal(element)" color="accent"><i
                 class="far fa-edit"></i></button>
-            <button mat-icon-button type="button" (click)="delete(element.id)" color="warn"><i
+            <button mat-icon-button type="button" (click)="delete(element._id)" color="warn"><i
                 class="far fa-trash-alt"></i></button>
           </td>
         </ng-container>

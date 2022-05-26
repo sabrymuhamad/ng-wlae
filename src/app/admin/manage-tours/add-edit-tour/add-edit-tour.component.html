@@ -19,7 +19,7 @@
         <mat-form-field class="w-100 mb-3">
           <mat-label>Select Destination</mat-label>
           <mat-select [(ngModel)]="tour.destination_id" name="destinationId">
-            <mat-option *ngFor="let destination of destinations" [value]="destination.id">
+            <mat-option *ngFor="let destination of destinations" [value]="destination._id">
               {{destination.name}}
             </mat-option>
           </mat-select>

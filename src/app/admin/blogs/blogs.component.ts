@@ -25,8 +25,8 @@ export class BlogsComponent implements OnInit {
     this.loading = true;
     this.blogService.list(this.pageNum, this.perPage).subscribe((res: any) => {
       this.loading = false;
-      this.blogs = res.response.data;
-      this.totalElements = res.response.meta.total;
+      this.blogs = res.data;
+      // this.totalElements = res.response.meta.total;
     })
   };
 

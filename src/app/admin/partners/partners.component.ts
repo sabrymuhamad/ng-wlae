@@ -25,8 +25,8 @@ export class PartnersComponent implements OnInit {
   getAllPartners() {
     this.loading = true;
     this.partnerService.getAll(20, this.pageNum).subscribe((partners: any) => {
-      this.partners = partners.response.data;
-      this.totalElements = partners.response.meta.total;
+      this.partners = partners.data;
+      // this.totalElements = partners.meta.total;
       this.loading = false;
     }, (err) => {
       this.toastr.error('something went wrong')
@@ -67,10 +67,10 @@ export class PartnersComponent implements OnInit {
   delete(id) {
     this.loading = true;
     this.partnerService.delete(id).subscribe((res: any) => {
-      if (res.statusCode == 200) {
+ 
         this.getAllPartners();
         this.loading = false;
-      }
+
     })
   }
 

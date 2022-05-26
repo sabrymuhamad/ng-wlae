@@ -37,15 +37,15 @@ export class ModalCustomerComponent implements OnInit {
       this.uploadIsLoading = true;
 
       let formData = new FormData();
-      formData.append('selectedFile', elem.files[0]);
+      formData.append('file', elem.files[0]);
 
       this.customerService.upload(formData).subscribe((res: any) => {
         this.uploadIsLoading = false;
         if (res.statusCode === 200) {
           this.toastr.success('Image is uploaded successfully');
-          this.customer.media_id = res.response.id;
-          this.customer.media_path = res.response.thumb_image;
-          this.imgUrl = res.response.thumb_image;
+          this.customer.media_id = res._id;
+          this.customer.media_path = res.filePath;
+          this.imgUrl = res.filePath;
         } else {
           this.toastr.error('Please try again!', 'Error uploading image');
         }
@@ -69,7 +69,7 @@ export class ModalCustomerComponent implements OnInit {
       })
     } else if (this.data.type === 'edit') {
 
-      this.customerService.update(this.customer.id, this.customer).subscribe((res) => {
+      this.customerService.update(this.customer._id, this.customer).subscribe((res) => {
         this.loading = false;
         this.dialogRef.close({ status: 'succeeded' });
         this.toastr.success('Destination Updated!');

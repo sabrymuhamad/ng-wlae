@@ -26,8 +26,8 @@ export class CategoriesComponent implements OnInit {
   getAllCategories() {
     this.loading = true;
     this.catService.getAll(20, this.pageNum).subscribe((categories: any) => {
-      this.categories = categories.response.data;
-      this.totalElements = categories.response.meta.total;
+      this.categories = categories.data;
+      // this.totalElements = categories.response.meta.total;
       this.loading = false;
     }, (err) => {
       this.toastr.error('something went wrong')
@@ -67,10 +67,8 @@ export class CategoriesComponent implements OnInit {
   delete(id) {
     this.loading = true;
     this.catService.delete(id).subscribe((res: any) => {
-      if (res.statusCode == 200) {
         this.getAllCategories();
         this.loading = false;
-      }
     })
   }
 

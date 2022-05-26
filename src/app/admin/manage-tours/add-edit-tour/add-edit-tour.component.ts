@@ -39,7 +39,6 @@ export class AddEditTourComponent implements OnInit {
     });
     this.getDestinations();
     if (this.mode === 'edit') {
-      console.log(this.tourId)
       this.tourService.view(this.tourId).subscribe((res: any) => {
         this.inclusions = [];
         this.exclusions = [];
@@ -83,7 +82,6 @@ export class AddEditTourComponent implements OnInit {
       if (el.desc.trim().length > 0) this.tour.exclusions.push(el.desc);
     });
 
-    console.log(JSON.stringify(this.tour.tour_details))
     if (this.mode === 'edit') {
       this.tourService.update(this.tourType, this.tourId, this.tour).subscribe((res: any) => {
         this.loading = false;
@@ -98,7 +96,8 @@ export class AddEditTourComponent implements OnInit {
         this.toastr.error(err.statusText, 'All fields are required');
       })
     } else {
-      this.tourService.create(this.tour, this.tourType).subscribe((res: any) => {
+      this.tour.tour_type = this.tourType;
+      this.tourService.create(this.tour).subscribe((res: any) => {
         this.loading = false;
 
         if (res.statusCode === 200) {
@@ -131,7 +130,7 @@ export class AddEditTourComponent implements OnInit {
 
   getDestinations() {
     this.destinationService.getAll(999999, 1).subscribe((data: any) => {
-      this.destinations = data.response.data;
+      this.destinations = data.data;
     })
   };
 
@@ -161,27 +160,27 @@ export class AddEditTourComponent implements OnInit {
   manageUploadsTypes(type, res, index?) {
     switch (type) {
       case 'main_media':
-        this.tour.main_media_id = res.id;
+        this.tour.main_media_id = res._id;
         this.tour.main_media_path = res.filePath;
         break;
       case 'trip_program':
-        this.tour.trip_program_media_id = res.id;
+        this.tour.trip_program_media_id = res._id;
         this.tour.trip_program_media_path = res.filePath;
         break;
       case 'expectation':
-        this.tour.expectation_media_id = res.id;
+        this.tour.expectation_media_id = res._id;
         this.tour.expectation_media_path = res.filePath;
         break;
       case 'inclusions':
-        this.tour.inclusions_media_id = res.id;
+        this.tour.inclusions_media_id = res._id;
         this.tour.inclusions_media_path = res.filePath;
         break;
       case 'exclusions':
-        this.tour.exclusions_media_id = res.id;
+        this.tour.exclusions_media_id = res._id;
         this.tour.exclusions_media_path = res.filePath;
         break;
       case 'tour_details':
-        this.tour.tour_details[index].media_id = res.id;
+        this.tour.tour_details[index].media_id = res._id;
         this.tour.tour_details[index].media_path = res.filePath;
         break;
     }
