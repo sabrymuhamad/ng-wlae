@@ -20,16 +20,18 @@ export class AboutUsComponent implements OnInit {
 
   getData() {
     this.loading = true;
-    this.settings.getSetting(1).subscribe((res: any) => {
+    this.settings.getAbout().subscribe((res: any) => {
       this.loading = false;
-      this.pageData = res.response;
+        this.pageData = res;
     })
   }
 
   submit() {
     this.loading = true;
-    this.settings.update(1, this.pageData).subscribe((res: any) => {
+    console.log(this.pageData)
+    this.settings.updateAbout(this.pageData).subscribe((res: any) => {
       this.loading = false;
+      this.pageData = res;
     })
   }
 

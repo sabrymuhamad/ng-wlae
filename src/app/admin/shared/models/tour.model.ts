@@ -45,7 +45,7 @@ class TourDates {
 }
 
 export class FeaturedArea {
-    id: number;
+    _id: number;
     title: string;
     sub_title: string;
     tag: string;

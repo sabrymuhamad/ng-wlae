@@ -2,6 +2,6 @@ export class AboutUs {
     title: string;
     description: string;
     content: string;
-    id: number;
+    _id: number;
     slug: string;
 }

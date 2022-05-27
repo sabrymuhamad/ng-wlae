@@ -25,8 +25,8 @@ export class FeaturedComponent implements OnInit {
   getAllAreas(){
     this.loading = true;
     this.sharedService.getAll(20, this.pageNum).subscribe((areas: any) => {
-      this.featuredAreas = areas.response.data;
-      this.totalElements = areas.response.meta.total;
+      this.featuredAreas = areas.data;
+      // this.totalElements = areas.response.meta.total;
       this.loading = false;
     },(err)=>{
       this.toastr.error('something went wrong')
@@ -66,10 +66,8 @@ export class FeaturedComponent implements OnInit {
   delete(id) {
     this.loading = true;
     this.sharedService.delete(id).subscribe((res: any) => {
-      if (res.statusCode == 200) {
         this.getAllAreas();
         this.loading = false;
-      }
     })
   }
 

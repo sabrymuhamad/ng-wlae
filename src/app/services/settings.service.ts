@@ -13,6 +13,14 @@ export class SettingsService extends ApiService{
     }
 
 
+    getAbout() {
+        return this.http.get(this.api() + `api/about`, { headers: this.makeHeaders() })
+    }
+
+    updateAbout(content) {
+        return this.http.put(this.api() + `api/about`, content, { headers: this.makeHeaders() })
+    }
+
     update(id, content) {
         return this.http.put(this.api() + `api/admin/setting/${id}`, content, { headers: this.makeHeaders() })
     }

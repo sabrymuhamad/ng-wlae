@@ -13,26 +13,26 @@ export class SharedService extends ApiService {
   }
 
   create(item) {
-    return this.http.post(this.api() + `api/admin/featured`, item, { headers: this.makeHeaders() })
+    return this.http.post(this.api() + `api/featured`, item, { headers: this.makeHeaders() })
   }
 
   update(id, item) {
-    return this.http.put(this.api() + `api/admin/featured/${id}`, item, { headers: this.makeHeaders() })
+    return this.http.put(this.api() + `api/featured/${id}`, item, { headers: this.makeHeaders() })
   }
 
   delete(id) {
-    return this.http.delete(this.api() + `api/admin/featured/${id}`, { headers: this.makeHeaders() })
+    return this.http.delete(this.api() + `api/featured/${id}`, { headers: this.makeHeaders() })
   }
 
   getAll(per_page, pageNum) {
-    return this.http.get(this.api() + `api/admin/featured?per_page=${per_page}&page=${pageNum}`, { headers: this.makeHeaders() })
+    return this.http.get(this.api() + `api/featured?per_page=${per_page}&page=${pageNum}`, { headers: this.makeHeaders() })
   }
 
   getItem(id) {
-    return this.http.get(this.api() + `api/admin/featured/${id}/edit`, { headers: this.makeHeaders() })
+    return this.http.get(this.api() + `api/featured/${id}/edit`, { headers: this.makeHeaders() })
   }
 
   upload(data: FormData) {
-    return this.http.post(this.api() + `api/admin/upload`, data, { headers: this.makeHeaders() })
+    return this.http.post(this.api() + `api/file/singleFile`, data, { headers: this.makeHeaders() })
   }
 }

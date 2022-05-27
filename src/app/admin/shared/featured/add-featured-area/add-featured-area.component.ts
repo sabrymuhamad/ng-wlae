@@ -33,15 +33,15 @@ export class AddFeaturedAreaComponent implements OnInit {
       this.uploadIsLoading = true;
 
       let formData = new FormData();
-      formData.append('selectedFile', elem.files[0]);
+      formData.append('file', elem.files[0]);
 
       this.sharedService.upload(formData).subscribe((res: any) => {
         this.uploadIsLoading = false;
         if (res.statusCode === 200) {
           this.toastr.success('Image is uploaded successfully');
-          this.area.media_id = res.response.id;
-          this.area.media_path = res.response.thumb_image;
-          this.imgUrl = res.response.thumb_image;
+          this.area.media_id = res._id;
+          this.area.media_path = res.filePath;
+          this.imgUrl = res.filePath;
         } else {
           this.toastr.error('Please try again!', 'Error uploading image');
         }
@@ -64,7 +64,7 @@ export class AddFeaturedAreaComponent implements OnInit {
         this.toastr.error('Something went wrong!');
       })
     } else if (this.data.type === 'edit') {
-      this.sharedService.update(this.area.id,this.area).subscribe((res) => {
+      this.sharedService.update(this.area._id,this.area).subscribe((res) => {
         this.loading = false;
         this.dialogRef.close({ status: 'succeeded' });
         this.toastr.success('Featured Area Updated!');
