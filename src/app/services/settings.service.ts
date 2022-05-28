@@ -21,16 +21,20 @@ export class SettingsService extends ApiService{
         return this.http.put(this.api() + `api/about`, content, { headers: this.makeHeaders() })
     }
 
-    update(id, content) {
-        return this.http.put(this.api() + `api/admin/setting/${id}`, content, { headers: this.makeHeaders() })
+    getContact() {
+        return this.http.get(this.api() + `api/contact`, { headers: this.makeHeaders() })
     }
 
-    getAll() {
-        return this.http.get(this.api() + `api/setting`, { headers: this.makeHeaders() })
+    updateContact(content) {
+        return this.http.put(this.api() + `api/contact`, content, { headers: this.makeHeaders() })
     }
 
-    getSetting(id) {
-        return this.http.get(this.api() + `api/setting/${id}/edit`, { headers: this.makeHeaders() })
+    updateFaq(content) {
+        return this.http.put(this.api() + `api/faq`, content, { headers: this.makeHeaders() })
+    }
+
+    getFaq() {
+        return this.http.get(this.api() + `api/faq`, { headers: this.makeHeaders() })
     }
 
 

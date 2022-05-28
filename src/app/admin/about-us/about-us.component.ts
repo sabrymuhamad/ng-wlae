@@ -28,7 +28,6 @@ export class AboutUsComponent implements OnInit {
 
   submit() {
     this.loading = true;
-    console.log(this.pageData)
     this.settings.updateAbout(this.pageData).subscribe((res: any) => {
       this.loading = false;
       this.pageData = res;

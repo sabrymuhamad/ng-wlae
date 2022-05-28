@@ -115,9 +115,9 @@ export class ContactUsComponent implements OnInit {
 
   getData() {
     this.loading = true;
-    this.settings.getSetting(2).subscribe((res: any) => {
+    this.settings.getContact().subscribe((res: any) => {
       this.loading = false;
-      this.contactUs = res.response;
+      this.contactUs = res;
     })
   }
 

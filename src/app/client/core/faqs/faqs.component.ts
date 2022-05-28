@@ -19,9 +19,9 @@ export class FaqsComponent implements OnInit {
 
   getAllFAQs() {
     this.loading = true;
-    this.settings.getSetting(3).subscribe((res: any) => {
+    this.settings.getFaq().subscribe((res: any) => {
       this.loading = false;
-      this.faqs = res.response.content;
+      this.faqs = res;
 
       this.faqs.forEach((faq) => {
         faq.answer = faq.answer.replace(/\n/g, '<br>');

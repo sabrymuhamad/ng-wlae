@@ -26,11 +26,11 @@ export class ManageFaqsComponent implements OnInit {
 
   getAllFAQs() {
     this.loading = true;
-    this.settings.getSetting(3).subscribe((res: any) => {
+    this.settings.getFaq().subscribe((res: any) => {
       this.loading = false;
-      this.faqs = res.response.content;
+      this.faqs = res;
       this.dataSource = new MatTableDataSource(this.faqs);
-      this.totalElements = res.response.content;
+      // this.totalElements = res.response.content;
     })
   }
 
@@ -71,10 +71,9 @@ export class ManageFaqsComponent implements OnInit {
   submit() {
     this.loading = true;
     let obj = {
-      "title": "FAQ",
       "content": this.faqs
     }
-    this.settings.update(3, obj).subscribe((res: any) => {
+    this.settings.updateFaq(this.faqs).subscribe((res: any) => {
       this.loading = false;
     })
   }

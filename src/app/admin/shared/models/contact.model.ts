@@ -5,4 +5,5 @@ export class ContactUs {
     email: string;
     address: string;
     phone: string;
+    _id:number;
 }

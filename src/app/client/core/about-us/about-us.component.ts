@@ -24,9 +24,9 @@ export class AboutUsComponent implements OnInit {
 
   getData() {
     this.loading = true;
-    this.settings.getSetting(1).subscribe((res: any) => {
+    this.settings.getAbout().subscribe((res: any) => {
       this.loading = false;
-      this.pageData = res.response;
+      this.pageData = res;
     })
   }
 }
