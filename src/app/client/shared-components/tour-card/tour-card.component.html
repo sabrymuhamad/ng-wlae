@@ -10,7 +10,7 @@
       <p>{{data?.tour_dates[0]?.tour_date | date:'yyyy'}}</p>
     </div>
     <div class="details">
-      <h5 [routerLink]="['/client/tours/tour-details/' + data.id]" [queryParams]="{type:data.tour_type}">{{data.title}}</h5>
+      <h5 [routerLink]="['/client/tours/tour-details/' + data._id]" [queryParams]="{type:data.tour_type}">{{data.title}}</h5>
       <div class="rate"><img src="assets/images/star.png"> <span class="px-1">4.9</span></div>
 
       <div class="price">

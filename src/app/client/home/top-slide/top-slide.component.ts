@@ -18,7 +18,7 @@ export class TopSlideComponent implements OnInit {
   getData() {
     this.loading = true;
     this.clientService.getFeaturedAreas().subscribe((res: any) => {
-      this.featuredData = res.response[0];
+      this.featuredData = res.data[0];
     })
   }
 

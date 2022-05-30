@@ -1,5 +1,5 @@
 export class Tour {
-    id: number;
+    _id: number;
     title: string;
     main_media_id: number;
     main_media_path: string;

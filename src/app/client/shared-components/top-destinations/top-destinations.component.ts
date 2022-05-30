@@ -58,8 +58,8 @@ export class TopDestinationsComponent implements OnInit {
     this.loading = true;
     this.clientService.getDestinations().subscribe((res: any) => {
       this.loading = false;
-      this.destinations = res.response;
-      this.onSelect.emit(this.destinations[0]);
+      this.destinations = res.data;
+      // this.onSelect.emit(this.destinations[0]);
     })
   };
   afterChange(e) {

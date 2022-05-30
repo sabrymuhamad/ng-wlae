@@ -21,7 +21,7 @@ export class OurCustomersComponent implements OnInit {
     this.loading = true;
     this.clientService.getCustomers().subscribe((res: any) => {
       this.loading = true;
-      this.customers = res.response;
+      this.customers = res.data;
       this.initSlider();
     })
   }

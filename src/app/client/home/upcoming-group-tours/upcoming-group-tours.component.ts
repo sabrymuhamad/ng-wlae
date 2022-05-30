@@ -50,7 +50,7 @@ export class UpcomingGroupToursComponent implements OnInit {
   getTours() {
     this.loading = true;
     this.clientService.getTours('public', 8, "0", "1").subscribe((res: any) => {
-      this.slides = res.response;
+      this.slides = res.data;
     })
   }
 

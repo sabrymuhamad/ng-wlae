@@ -20,7 +20,7 @@ export class OurPartnersComponent implements OnInit {
     this.loading = true;
     this.clientService.getPartners().subscribe((res: any) => {
       this.loading = false;
-      this.partners = res.response;
+      this.partners = res.data;
     });
   }
 

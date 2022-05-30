@@ -14,20 +14,21 @@ export class ClientService extends ApiService{
    }
 
   getCustomers() {
-    return this.http.get(this.api() + `api/client/home/customer`);
+    return this.http.get(this.api() + `api/customers`);
   }
 
   getPartners() {
-    return this.http.get(this.api() + `api/client/home/partner`);
+    return this.http.get(this.api() + `api/partners`);
   }
 
   getDestinations() {
-    return this.http.get(this.api() + `api/client/destination`);
+    return this.http.get(this.api() + `api/destinations`);
   }
 
   getTours(type, per_page, is_paginated = "1", latest = "1", destID = "") {
-    return this.http.get(this.api() + `api/client/tour/${type}/?`, {
+    return this.http.get(this.api() + `api/tours?`, {
       headers: {}, params: {
+        type:type,
         per_page: per_page,
         is_paginated: is_paginated,
         latest: latest,
@@ -37,15 +38,15 @@ export class ClientService extends ApiService{
   };
 
   getFeaturedAreas() {
-    return this.http.get(this.api() + `api/client/home/featured`);
+    return this.http.get(this.api() + `api/featured`);
   }
 
   getTour(type, id) {
-    return this.http.get(this.api() + `api/client/${type}/tour/${id}/show`);
+    return this.http.get(this.api() + `api/tours/${id}`);
   }
 
   getAllCats() {
-    return this.http.get(this.api() + `api/client/category`);
+    return this.http.get(this.api() + `api/categories`);
   }
 
 

@@ -85,12 +85,7 @@ export class AddEditTourComponent implements OnInit {
     if (this.mode === 'edit') {
       this.tourService.update(this.tourType, this.tourId, this.tour).subscribe((res: any) => {
         this.loading = false;
-
-        if (res.statusCode === 200) {
-          this.toastr.success('Tour is updated successfully!');
-        } else {
-          this.toastr.error(res.errors[0], 'Error!');
-        }
+        this.toastr.success('Tour is updated successfully!');
       }, (err) => {
         this.loading = false;
         this.toastr.error(err.statusText, 'All fields are required');
@@ -99,15 +94,10 @@ export class AddEditTourComponent implements OnInit {
       this.tour.tour_type = this.tourType;
       this.tourService.create(this.tour).subscribe((res: any) => {
         this.loading = false;
-
-        if (res.statusCode === 200) {
-          this.toastr.success('Tour Created successfully!');
-          form.reset();
-          $('input[type=file]').value('');
-          $('.tourForm img').attr('src', '');
-        } else {
-          this.toastr.error(res.errors[0], 'Error!');
-        }
+        this.toastr.success('Tour Created successfully!');
+        form.reset();
+        $('input[type=file]').value('');
+        $('.tourForm img').attr('src', '');
       }, (err) => {
         this.loading = false;
         this.toastr.error(err.statusText, 'All fields are required');

@@ -31,7 +31,7 @@ export class ManageToursComponent implements OnInit {
     this.tourService.list(this.tourType, this.pageNum, this.perPage).subscribe((res: any) => {
       this.loading = false;
       this.tours = res.data;
-      this.totalElements = res.meta.total;
+      // this.totalElements = res.meta.total;
     })
   }
   onPaginationChabge(e) {

@@ -57,12 +57,12 @@ export class HomeComponent implements OnInit {
     this.loading = true;
     this.clientService.getTours(type, size, "0", "1").subscribe((res: any) => {
       if (type === 'private') {
-        this.privateTours = res.response;
+        this.privateTours = res.data;
       }
       else {
-        this.publicTours = res.response;
+        this.publicTours = res.data;
       }
-      this.hiddenGems = [...this.hiddenGems, ...res.response]
+      this.hiddenGems = [...this.hiddenGems, ...res.data]
     })
   }
 

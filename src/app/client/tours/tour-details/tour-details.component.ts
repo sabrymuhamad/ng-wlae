@@ -36,7 +36,7 @@ export class TourDetailsComponent implements OnInit {
   getTourDetails() {
     this.loading = true;
     this.clientService.getTour(this.tripType, this.tripId).subscribe((res: any) => {
-      this.tour = res.response;
+      this.tour = res.data;
       this.tour.expectation_description = this.tour.expectation_description.replace(/\n/g, '<br>');
     })
   }

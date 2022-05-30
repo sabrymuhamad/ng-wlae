@@ -37,8 +37,8 @@ export class ToursComponent implements OnInit {
   onSelectDest(dest) {
     this.selectedDest = dest;
     this.loading = true;
-    this.clientService.getTours(this.tripType, 20, '0', '1', dest.id).subscribe((res: any) => {
-      this.masonryItems = res.response;
+    this.clientService.getTours(this.tripType, 20, '0', '1', dest._id).subscribe((res: any) => {
+      this.masonryItems = res.data;
       this.masonryItems.map((item) => {
         item.height = Math.floor(Math.random() * 100) + 250;
       });

@@ -19,6 +19,8 @@ export class TourCardComponent implements OnInit {
       if (params.type)
         this.type = params.type;
     })
+
+    console.log(this.data)
   }
 
 }
