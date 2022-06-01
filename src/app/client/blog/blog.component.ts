@@ -29,8 +29,8 @@ export class BlogComponent implements OnInit {
   getAllCategories() {
     this.loading = true;
     this.clientService.getAllCats().subscribe((categories: any) => {
-      categories.response.unshift({ name: 'All', id: null })
-      this.categories = categories.response;
+      categories.data.unshift({ name: 'All', id: null })
+      this.categories = categories.data;
       this.loading = false;
     }, (err) => {
       this.toastr.error('something went wrong')
@@ -41,8 +41,8 @@ export class BlogComponent implements OnInit {
     this.loading = true;
     this.blogService.list(this.pageNum, this.perPage, catId).subscribe((res: any) => {
       this.loading = false;
-      this.blogs = res.response.data;
-      this.totalElements = res.response.meta.total;
+      this.blogs = res.data;
+      // this.totalElements = res.response.meta.total;
     })
   };
 

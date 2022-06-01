@@ -9,7 +9,7 @@ import { BlogsService } from 'src/app/services/blogs.service';
   styleUrls: ['./blog-details.component.scss']
 })
 export class BlogDetailsComponent implements OnInit {
-  id: number;
+  id: string;
   blog: Blog = new Blog();
   loading: boolean;
   related: Blog[] = [];
@@ -17,7 +17,7 @@ export class BlogDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.id = +params.id;
+      this.id = params.id;
     });
     this.getBlogDetails();
   }
@@ -26,7 +26,7 @@ export class BlogDetailsComponent implements OnInit {
     this.loading = true;
     this.blogService.view(this.id).subscribe((blog: any) => {
       this.loading = false;
-      this.blog = blog.response;
+      this.blog = blog.data;
       this.getRelatedBlogs();
     })
   }
@@ -35,7 +35,7 @@ export class BlogDetailsComponent implements OnInit {
     this.loading = true;
     this.blogService.list(0, 3, this.blog.category_id).subscribe((res: any) => {
       this.loading = false;
-      this.related = res.response.data;
+      this.related = res.data;
     })
   };
 

@@ -7,7 +7,7 @@
 
   <ul class="blog-tabs mb-5">
     <li *ngFor="let category of categories;let i = index" [ngClass]="{'active' : i === selectedIndex}" class="mx-2">
-      <button (click)="onSelectCategory(i, category.id)">{{category.name}}</button></li>
+      <button (click)="onSelectCategory(i, category._id)">{{category.name}}</button></li>
   </ul>
 
   <div class="row blog-wrapper">
