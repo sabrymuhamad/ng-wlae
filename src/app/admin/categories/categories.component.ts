@@ -27,7 +27,7 @@ export class CategoriesComponent implements OnInit {
     this.loading = true;
     this.catService.getAll(20, this.pageNum).subscribe((categories: any) => {
       this.categories = categories.data;
-      // this.totalElements = categories.response.meta.total;
+      this.totalElements = categories.meta.total;
       this.loading = false;
     }, (err) => {
       this.toastr.error('something went wrong')

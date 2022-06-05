@@ -33,7 +33,7 @@ export class BlogDetailsComponent implements OnInit {
 
   getRelatedBlogs() {
     this.loading = true;
-    this.blogService.list(0, 3, this.blog.category_id).subscribe((res: any) => {
+    this.blogService.list(1, 3, this.blog.category_id).subscribe((res: any) => {
       this.loading = false;
       this.related = res.data;
     })

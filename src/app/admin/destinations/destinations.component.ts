@@ -58,7 +58,7 @@ export class DestinationsComponent implements OnInit {
     this.loading = true;
     this.destService.getAll(20, this.pageNum).subscribe((destinations: any) => {
       this.destinations = destinations.data;
-      // this.totalElements = destinations.meta.total;
+      this.totalElements = destinations.meta.total;
       this.loading = false;
     },(err)=>{
       this.toastr.error('something went wrong')

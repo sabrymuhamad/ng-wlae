@@ -15,7 +15,7 @@ export class BlogComponent implements OnInit {
   scrollLoading: boolean;
   selectedIndex: number = 0;
   loading: boolean;
-  pageNum: number = 0;
+  pageNum: number = 1;
   perPage: number = 20;
   categories: Category[];
   totalElements: number;
@@ -42,7 +42,7 @@ export class BlogComponent implements OnInit {
     this.blogService.list(this.pageNum, this.perPage, catId).subscribe((res: any) => {
       this.loading = false;
       this.blogs = res.data;
-      // this.totalElements = res.response.meta.total;
+      this.totalElements = res.meta.total;
     })
   };
 

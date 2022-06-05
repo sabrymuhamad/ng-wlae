@@ -26,7 +26,7 @@ export class PartnersComponent implements OnInit {
     this.loading = true;
     this.partnerService.getAll(20, this.pageNum).subscribe((partners: any) => {
       this.partners = partners.data;
-      // this.totalElements = partners.meta.total;
+      this.totalElements = partners.meta.total;
       this.loading = false;
     }, (err) => {
       this.toastr.error('something went wrong')

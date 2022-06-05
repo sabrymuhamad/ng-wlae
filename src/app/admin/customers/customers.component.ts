@@ -27,7 +27,7 @@ export class CustomersComponent implements OnInit {
     this.loading = true;
     this.customerService.getAll(20, this.pageNum).subscribe((customers: any) => {
       this.customers = customers.data;
-      // this.totalElements = customers.response.meta.total;
+      this.totalElements = customers.meta.total;
       this.loading = false;
     }, (err) => {
       this.toastr.error('something went wrong')
