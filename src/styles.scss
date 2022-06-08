@@ -265,9 +265,14 @@ button {
       border: solid 1px #979797;
       background-color: #121212;
       margin-bottom: 25px;
+      color: #FFF;
 
       &:focus {
         opacity: 1;
+      }
+
+      &.ng-touched.ng-invalid {
+        border-color: red;
       }
     }
   }

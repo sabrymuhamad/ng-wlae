@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ContactUs } from 'src/app/admin/shared/models/contact.model';
@@ -122,7 +123,23 @@ export class ContactUsComponent implements OnInit {
   }
 
 
-  send() {
+  send(form:NgForm) {
+    let body = {
+      fullName: this.fullName,
+      email: this.email,
+      subject: this.subject,
+      message: this.message
+    }
+
+    this.settings.sendEmail(body).subscribe((res) => {
+    }, (err) => {
+      if (err.status === 200) {
+        this.toastr.success('Message is sent successfully!');
+        form.reset();
+      } else {
+        this.toastr.error("Sorry! we can't receive your message at the moment.")
+      }
+    })
 
   }
 

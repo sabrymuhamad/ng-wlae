@@ -39,23 +39,23 @@
         <div class="col-md-7 col-12 px-5">
           <h3 class="text-white mb-4">Get in touch</h3>
 
-          <form class="form-dark" (ngSubmit)="send()">
+          <form class="form-dark" (ngSubmit)="send(sendEmailForm)" #sendEmailForm="ngForm">
             <div class="form-group">
-              <input type="text" placeholder="Full name" [(ngModel)]="fullName" name="fullName" class="form-control">
+              <input type="text" placeholder="Full name" [(ngModel)]="fullName" required name="fullName" class="form-control">
             </div>
             <div class="form-group">
-              <input type="email" placeholder="Email address" [(ngModel)]="email" name="email" class="form-control">
+              <input type="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="email" required name="email" class="form-control">
             </div>
             <div class="form-group">
               <input type="text" placeholder="Subject" [(ngModel)]="subject" name="subject" class="form-control">
             </div>
             <div class="form-group">
-              <textarea rows="10"  placeholder="Message" [(ngModel)]="message" name="message"
+              <textarea rows="10"  placeholder="Message" [(ngModel)]="message" required name="message"
                 class="form-control"></textarea>
             </div>
 
             <div class="form-group text-right">
-              <button class="btn btn-gold text-uppercase py-2">Send</button>
+              <button [disabled]="!sendEmailForm.valid" class="btn btn-gold text-uppercase py-2">Send</button>
             </div>
           </form>
         </div>

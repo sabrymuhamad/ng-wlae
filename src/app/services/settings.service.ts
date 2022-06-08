@@ -6,9 +6,9 @@ import { ApiService } from './api.service';
 @Injectable({
     providedIn: 'root'
 })
-export class SettingsService extends ApiService{
+export class SettingsService extends ApiService {
 
-    constructor(private http: HttpClient) { 
+    constructor(private http: HttpClient) {
         super();
     }
 
@@ -35,6 +35,10 @@ export class SettingsService extends ApiService{
 
     getFaq() {
         return this.http.get(this.api() + `api/faq`, { headers: this.makeHeaders() })
+    }
+
+    sendEmail(body) {
+        return this.http.post(this.api() + `api/contact/send`, body, { headers: this.makeHeaders() })
     }
 
 
