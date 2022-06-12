@@ -23,6 +23,7 @@ export class Tour {
     tour_price: Pricing[] = [];
     tour_dates: TourDates[] = [];
     tour_type: string;
+    totalCost: number;
 }
 
 export class Pricing {
@@ -31,7 +32,8 @@ export class Pricing {
     persons_number: string;
     additional_notes: string;
     price: number;
-    perPerson:number
+    perPerson: number;
+    total: number;
 }
 export class TourDetails {
     time_range: string;
